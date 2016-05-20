@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\ExampleControllers;
+namespace ProjectManager\Http\Controllers\ExampleControllers;
 
-use App\Http\Controllers\Controller;
+use ProjectManager\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

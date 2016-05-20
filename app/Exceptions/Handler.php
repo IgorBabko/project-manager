@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace ProjectManager\Exceptions;
 
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;

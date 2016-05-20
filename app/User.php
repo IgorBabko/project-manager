@@ -1,11 +1,11 @@
 <?php
 
-namespace App;
+namespace ProjectManager;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
- * App\User
+ * ProjectManager\User
  *
  * @property integer $id
  * @property string $name

@@ -151,10 +151,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        ProjectManager\Providers\AppServiceProvider::class,
+        ProjectManager\Providers\AuthServiceProvider::class,
+        ProjectManager\Providers\EventServiceProvider::class,
+        ProjectManager\Providers\RouteServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
     ],
 
