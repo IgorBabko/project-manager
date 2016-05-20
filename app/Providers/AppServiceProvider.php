@@ -3,6 +3,7 @@
 namespace ProjectManager\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if (env('APP_DEBUG')) {
+            App::register(\Barryvdh\Debugbar\ServiceProvider::class);
+        }
     }
 }

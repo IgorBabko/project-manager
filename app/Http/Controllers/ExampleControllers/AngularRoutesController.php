@@ -5,6 +5,7 @@ namespace ProjectManager\Http\Controllers\ExampleControllers;
 use ProjectManager\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Debugbar;
 
 class AngularRoutesController extends Controller
 {
