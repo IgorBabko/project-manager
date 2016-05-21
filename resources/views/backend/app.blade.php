@@ -8,6 +8,7 @@
         <meta name="author" content="">
         <title>Project Manager</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/bootstrap-table.min.css">
         <link rel="stylesheet" href="/css/app.css">
         <base href="/"/>
     </head>
