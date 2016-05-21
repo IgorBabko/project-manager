@@ -22,10 +22,10 @@ elixir(function(mix) {
     /**
      * Bootstrap
      **/
-    var bootstrapPath = 'node_modules/bootstrap-less';
+    var bootstrapPath = 'node_modules/bootstrap-sass/';
 
     mix.copy(bootstrapPath, 'resources/vendor/bootstrap/');
-    mix.copy(bootstrapPath + '/fonts', 'public/fonts');
+    mix.copy(bootstrapPath + 'fonts', 'public/fonts');
 
     /**
      * JQuery
@@ -33,9 +33,9 @@ elixir(function(mix) {
     mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js/jquery');
 
     /**
-     * Less
+     * Sass
      **/
-    mix.less('app.less');
+    mix.sass('app.sass');
 
     /**
      * Scripts webpack bundling and copying
