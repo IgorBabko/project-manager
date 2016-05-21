@@ -23,17 +23,27 @@ elixir(function(mix) {
      * JQuery
      **/
     mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js');
-    
+
     /**
      * Bootstrap css
      **/
     mix.copy('node_modules/bootstrap/dist/css/bootstrap.min.css', 'public/css');
-    
+
     /**
      * Bootstrap js
      **/
     mix.copy('node_modules/bootstrap/dist/js/bootstrap.min.js', 'public/js');
-    
+
+    /**
+     * Bootstrap table css
+     **/
+    mix.copy('bower_components/bootstrap-table/dist/bootstrap-table.min.css', 'public/css');
+
+    /**
+     * Bootstrap table js
+     **/
+    mix.copy('bower_components/bootstrap-table/dist/bootstrap-table.min.js', 'public/js');
+
     /**
      * Bootstrap fonts
      **/
@@ -58,13 +68,11 @@ elixir(function(mix) {
             extensions: ['', '.ts', '.js']
         },
         module: {
-            loaders: [
-                {
-                    test: /\.ts$/,
-                    loader: 'awesome-typescript-loader',
-                    exclude: /node_modules/
-                }
-            ]
+            loaders: [{
+                test: /\.ts$/,
+                loader: 'awesome-typescript-loader',
+                exclude: /node_modules/
+            }]
         },
         plugins: [
             new webpack.ProvidePlugin({
