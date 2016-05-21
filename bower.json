@@ -1,0 +1,21 @@
+{
+  "name": "project-manager",
+  "description": "Laravel 5 and Angular 2 project manager app",
+  "main": "",
+  "authors": [
+    "emerge <i.i.babko@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/IgorBabko/project-manager",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-table": "^1.10.1"
+  }
+}
