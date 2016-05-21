@@ -1,16 +1,11 @@
 import { Component } from '@angular/core';
 import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
-import { FirstComponent } from './Components/FirstComponent/FirstComponent';
-import { SecondComponent } from './Components/SecondComponent/SecondComponent';
+import { ProjectListComponent } from './Components/ProjectListComponent/ProjectListComponent';
 
 @Routes([
     {
         path: '/',
-        component: FirstComponent
-    },
-    {
-        path: '/edit',
-        component: SecondComponent
+        component: ProjectListComponent
     }
 ])
 @Component({
