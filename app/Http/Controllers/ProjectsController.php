@@ -5,6 +5,7 @@ namespace ProjectManager\Http\Controllers;
 use Illuminate\Http\Request;
 
 use ProjectManager\Http\Requests;
+use ProjectManager\Project;
 
 class ProjectsController extends Controller
 {
@@ -15,7 +16,8 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        return json_encode([1, 2, 3]);
+        $arr = ["foo", "bar", "baz", "blong"];
+        return Project::all()->toArray();
         // return view('backend.content');
     }
 

@@ -1,18 +1,31 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
+import { ProjectService } from '../../Services/ProjectService/ProjectService';
 import { Router } from '@angular/router';
 
 @Component({
-    'templateUrl': '/templates/ProjectListComponent.main'
+    'templateUrl': '/templates/ProjectListComponent.main',
+    providers: [ProjectService]
 })
 export class ProjectListComponent implements OnInit {
 
-    public projects;
+    private projects;
+    private errorMessage;
 
-    // constructor(private _projectsService: ProjectService) {
+    constructor(private projectService: ProjectService) {
         
-    // }
+    }
 
     ngOnInit() {
-        this.projects = ['gta5', 'assasins', 'call of duty'];
+        this.getHeroes();
+        console.log(this.projects);
+    }
+    
+    private getHeroes() {
+        // this.projects = ['gta5', 'assasins', 'call of duty'];
+        this.projectService
+            .getProjects()
+            .subscribe(
+                projects => this.projects = projects,
+                error    => this.errorMessage = <any>error);
     }
 }

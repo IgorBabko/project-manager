@@ -1,6 +1,7 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
+import { Project }        from '../../Models/ProjectModel/ProjectModel'
 import 'rxjs';
 
 @Injectable()
@@ -8,17 +9,17 @@ export class ProjectService {
 
     constructor(private http: Http) { }
     
-    private heroesUrl = 'app/heroes';  // URL to web API
+    private projectsUrl = 'projects';
     
     getProjects(): Observable<Project[]> {
-        return this.http.get(this.heroesUrl)
+        return this.http.get(this.projectsUrl)
             .map(this.extractData)
             .catch(this.handleError);
     }
     
     private extractData(res: Response) {
-        let body = res.json();
-        return body.data || {};
+        console.log(res.json());
+        return res.json();
     }
     
     private handleError(error: any) {
