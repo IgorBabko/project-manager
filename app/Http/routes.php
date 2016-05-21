@@ -17,19 +17,15 @@ Route::get('/', [
     'as' => 'home'
 ]);
 
-// Angular 2 base `/edit` route resolving
-Route::get('/edit', [
-    'uses' => 'ExampleControllers\AngularRoutesController@index',
-    'as' => 'edit'
-]);
-
 // Angular 2 templates route
-Route::get('/templates/{template}', 'ExampleControllers\AngularTemplatesController@index');
+Route::get('/templates/{template}', 'AngularTemplatesController@index');
 
 // API route
 Route::post('/api/upload-file', 'ExampleControllers\UploadController@uploadFile');
 
-Route::resource('project', 'ProjectsController');
+Route::resource('projects', 'ProjectsController', [
+    'parameters' => 'singular'
+]);
 
 /*
 |--------------------------------------------------------------------------

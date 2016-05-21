@@ -1,6 +1,6 @@
 <?php
 
-namespace ProjectManager\Http\Controllers\ExampleControllers;
+namespace ProjectManager\Http\Controllers;
 
 use ProjectManager\Http\Controllers\Controller;
 use Illuminate\Http\Request;

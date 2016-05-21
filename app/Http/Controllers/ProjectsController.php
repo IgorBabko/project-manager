@@ -15,7 +15,8 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        //
+        return json_encode([1, 2, 3]);
+        // return view('backend.content');
     }
 
     /**
