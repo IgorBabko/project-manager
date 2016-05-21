@@ -4,6 +4,4 @@
     <app>
          @include('backend.partials.loading')
     </app>
-
-    @include('backend.partials.scripts')
 @stop

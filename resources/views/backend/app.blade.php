@@ -13,10 +13,13 @@
         <base href="/"/>
     </head>
     <body>
+    
         @include('backend.partials.nav')
 
         @yield('layout')
 
+        @include('backend.partials.scripts')
+        
         @if (Config::get('app.debug'))
             <script type="text/javascript">
                 document.write('<script src="//localhost:35729/livereload.js?snipver=1" type="text/javascript"><\/script>')

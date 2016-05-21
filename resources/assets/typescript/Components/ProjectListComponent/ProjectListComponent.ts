@@ -22,19 +22,29 @@ export class ProjectListComponent implements OnInit {
         console.log(this.projects);
 
         jQuery('#table').bootstrapTable({
+            search: true,
+            pagination: true,
+            showColumns: true,
+            showToggle: true,
+            showRefresh: true,
+            cardView: true,
             url: '/projects',
             columns: [{
                 field: 'id',
                 title: 'ID',
+                sortable: true
             }, {
                 field: 'name',
-                title: 'Name'
+                title: 'Name',
+                sortable: true
             }, {
                 field: 'description',
-                title: 'Description'
+                title: 'Description',
+                sortable: true
             },{
                 field: 'budget',
-                title: 'Budget'
+                title: 'Budget',
+                sortable: true
             }]
         });
     }
