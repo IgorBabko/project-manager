@@ -29,6 +29,8 @@ Route::get('/templates/{template}', 'ExampleControllers\AngularTemplatesControll
 // API route
 Route::post('/api/upload-file', 'ExampleControllers\UploadController@uploadFile');
 
+Route::resource('project', 'ProjectsController');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
