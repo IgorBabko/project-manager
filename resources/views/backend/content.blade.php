@@ -2,7 +2,7 @@
 
 @section('backend.content')
     <!--<app>
-         @include('backend.loading')
+         @include('backend.partials.loading')
     </app> -->
     <div class="container">
 
@@ -17,5 +17,5 @@
 
     </div>
 
-    @include('backend.scripts-import')
+    @include('backend.scripts')
 @stop
