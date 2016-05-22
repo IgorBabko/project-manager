@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
 import { ProjectListComponent } from './Components/ProjectListComponent';
+import { NavbarComponent } from './Components/NavbarComponent';
 
 @Routes([
     {
@@ -9,9 +10,9 @@ import { ProjectListComponent } from './Components/ProjectListComponent';
     }
 ])
 @Component({
-    'directives': [ROUTER_DIRECTIVES],
+    'directives': [ROUTER_DIRECTIVES, NavbarComponent],
     'selector': 'app',
-    'template': `<a [routerLink]="['/']">main</a><router-outlet></router-outlet>`
+    'templateUrl': '/templates/AppComponent.main'
 })
 export class AppComponent {
     constructor () {}
