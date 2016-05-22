@@ -50,6 +50,18 @@ elixir(function(mix) {
     mix.copy('node_modules/bootstrap/dist/fonts', 'public/fonts');
 
     /**
+     * Font awesome css
+     **/
+    mix.copy('node_modules/font-awesome/css/font-awesome.min.css', 'public/css/font-awesome.min.css');
+
+    /**
+     * Font awesome fonts
+     **/
+    mix.copy('node_modules/font-awesome/fonts', 'public/fonts');
+
+
+
+    /**
      * Sass
      **/
     mix.sass('app.sass');
