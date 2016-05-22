@@ -14,9 +14,11 @@
     </head>
     <body>
     
-        <app>
-            @include('backend.partials.loading')
-        </app>
+        <div id="wrapper">
+            <app>
+                @include('backend.partials.loading')
+            </app>
+        </div>
 
         @include('backend.partials.scripts')
         
