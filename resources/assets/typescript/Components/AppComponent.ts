@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
-import { ProjectListComponent } from './Components/ProjectListComponent';
-import { NavbarComponent } from './Components/NavbarComponent';
+import { ProjectListComponent } from './ProjectListComponent';
+import { NavbarComponent } from './NavbarComponent';
 
 @Routes([
     {
@@ -10,7 +10,7 @@ import { NavbarComponent } from './Components/NavbarComponent';
     }
 ])
 @Component({
-    'directives': [ROUTER_DIRECTIVES, NavbarComponent],
+    'directives': [ROUTER_DIRECTIVES, NavbarComponent, ProjectListComponent],
     'selector': 'app',
     'templateUrl': '/templates/AppComponent.main'
 })
