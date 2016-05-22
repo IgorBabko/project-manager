@@ -7,8 +7,8 @@ use ProjectManager\Project;
 
 class Client extends Model
 {
-    public function project() {
+    public function projects() {
         
-        return $this->hasOne(Project::class);
+        return $this->hasMany(Project::class);
     }
 }

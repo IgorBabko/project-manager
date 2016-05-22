@@ -15,6 +15,6 @@ class Project extends Model
     
     public function workers() {
         
-        $this->hasMany(Worker::class);
+        $this->belongsToMany(Worker::class);
     }
 }

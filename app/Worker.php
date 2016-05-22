@@ -7,8 +7,8 @@ use ProjectManager\Project;
 
 class Worker extends Model
 {
-    public function project() {
+    public function projects() {
         
-        return $this->belongsTo(Project::class);
+        return $this->belongsToMany(Project::class);
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientsTable extends Migration
+class CreateWorkingHoursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,13 @@ class CreateClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('working_hours', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            
-            $table->increments('id');
-            $table->integer('organisation_id')->unsigned();
-            $table->string('first_name');
-            $table->string('last_name');
+
+            $table->increments('id');       
+            $table->integer('worker_id')->unsigned();     
+            $table->time('time_from');
+            $table->time('time_to');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateClientsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('clients');
+        Schema::drop('working_hours');
     }
 }

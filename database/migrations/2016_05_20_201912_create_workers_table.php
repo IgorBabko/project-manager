@@ -16,10 +16,6 @@ class CreateWorkersTable extends Migration
             $table->engine = 'InnoDB';
             
             $table->increments('id');
-            $table->integer('project_id')->unsigned();
-            $table->foreign('project_id')
-                  ->references('id')->on('projects')
-                  ->onDelete('cascade');
             $table->string('first_name');
             $table->string('last_name');
             $table->integer('age');
