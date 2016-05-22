@@ -13,10 +13,9 @@
         <base href="/"/>
     </head>
     <body>
-    
-        @include('backend.partials.nav')
-
-        @yield('layout')
+        <app>
+            @include('backend.partials.loading')
+        </app>
 
         @include('backend.partials.scripts')
         
