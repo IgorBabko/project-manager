@@ -16,9 +16,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $arr = ["foo", "bar", "baz", "blong"];
         return Project::all()->toArray();
-        // return view('backend.content');
     }
 
     /**
