@@ -6,7 +6,7 @@ use ProjectManager\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class AngularTemplatesController extends Controller
+class AngularTemplateController extends Controller
 {
     public function __construct()
     {

@@ -13,12 +13,12 @@
 
 // Angular 2 base route resolving
 Route::get('/', [
-    'uses' => 'AngularRoutesController@index',
+    'uses' => 'AngularRouteController@index',
     'as' => 'home'
 ]);
 
 // Angular 2 templates route
-Route::get('/templates/{template}', 'AngularTemplatesController@index');
+Route::get('/templates/{template}', 'AngularTemplateController@index');
 
 // API route
 Route::resource('projects', 'ProjectsController', [

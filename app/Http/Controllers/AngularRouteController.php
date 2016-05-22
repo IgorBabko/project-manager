@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Debugbar;
 
-class AngularRoutesController extends Controller
+class AngularRouteController extends Controller
 {
     public function __construct()
     {
