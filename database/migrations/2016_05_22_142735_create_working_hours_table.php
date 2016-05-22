@@ -15,7 +15,8 @@ class CreateWorkingHoursTable extends Migration
         Schema::create('working_hours', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
-            $table->increments('id');            
+            $table->increments('id');       
+            $table->integer('worker_id')->unsigned();     
             $table->time('time_from');
             $table->time('time_to');
             $table->timestamps();
