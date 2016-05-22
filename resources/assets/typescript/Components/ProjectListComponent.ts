@@ -1,12 +1,14 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { ProjectService } from '../Services/ProjectService';
+import { StatisticsComponent } from './StatisticsComponent';
 import { Router } from '@angular/router';
 
 declare var jQuery: any;
 
 @Component({
     'templateUrl': '/templates/ProjectListComponent.main',
-    providers: [ProjectService]
+    providers: [ProjectService],
+    directives: [StatisticsComponent]
 })
 export class ProjectListComponent implements OnInit {
 
