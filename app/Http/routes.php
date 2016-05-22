@@ -13,7 +13,7 @@
 
 // Angular 2 base route resolving
 Route::get('/', [
-    'uses' => 'ExampleControllers\AngularRoutesController@index',
+    'uses' => 'AngularRoutesController@index',
     'as' => 'home'
 ]);
 
@@ -21,8 +21,6 @@ Route::get('/', [
 Route::get('/templates/{template}', 'AngularTemplatesController@index');
 
 // API route
-Route::post('/api/upload-file', 'ExampleControllers\UploadController@uploadFile');
-
 Route::resource('projects', 'ProjectsController', [
     'parameters' => 'singular'
 ]);
