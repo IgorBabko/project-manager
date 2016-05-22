@@ -13,6 +13,8 @@ class CreateProjectWorkerTable extends Migration
     public function up()
     {
         Schema::create('project_worker', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            
             $table->increments('id');
             
             $table->integer('project_id')->unsigned()->index();

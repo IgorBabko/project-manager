@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWorkingHoursTable extends Migration
+class CreateOrganizationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,11 @@ class CreateWorkingHoursTable extends Migration
      */
     public function up()
     {
-        Schema::create('working_hours', function (Blueprint $table) {
+        Schema::create('organizations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
-            $table->increments('id');            
-            $table->time('time_from');
-            $table->time('time_to');
+            $table->increments('id');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateWorkingHoursTable extends Migration
      */
     public function down()
     {
-        Schema::drop('working_hours');
+        Schema::drop('organizations');
     }
 }
