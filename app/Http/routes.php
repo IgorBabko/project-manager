@@ -21,7 +21,7 @@ Route::get('/', [
 Route::get('/templates/{template}', 'AngularTemplateController@index');
 
 // API route
-Route::resource('projects', 'ProjectsController', [
+Route::resource('projects', 'ProjectController', [
     'parameters' => 'singular'
 ]);
 
