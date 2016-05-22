@@ -1,11 +1,7 @@
 <div id="page-wrapper">
     <div class="container-fluid">
-        niko bellic
+        <div class="row">
+            <table id="table"></table>
+        </div>
     </div>
 </div>
-
-<!--<div class="container">
-    <div class="row">
-        <table id="table"></table>
-    </div>
-</div>-->
