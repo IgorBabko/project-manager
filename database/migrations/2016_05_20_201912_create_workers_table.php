@@ -16,7 +16,6 @@ class CreateWorkersTable extends Migration
             $table->engine = 'InnoDB';
             
             $table->increments('id');
-            $table->integer('working_hourse_id')->unsigned();
             $table->string('first_name');
             $table->string('last_name');
             $table->integer('age');
