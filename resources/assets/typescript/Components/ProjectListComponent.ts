@@ -21,7 +21,6 @@ export class ProjectListComponent implements OnInit {
 
     ngOnInit() {
         this.getHeroes();
-        console.log(this.projects);
 
         jQuery('#table').bootstrapTable({
             search: true,
@@ -52,7 +51,6 @@ export class ProjectListComponent implements OnInit {
     }
 
     private getHeroes() {
-        // this.projects = ['gta5', 'assasins', 'call of duty'];
         this.projectService
             .getProjects()
             .subscribe(
