@@ -15,8 +15,6 @@
             </div>
         </div>
         
-        <statistics></statistics>
-
         <div class="row">
             <table id="table"></table>
         </div>

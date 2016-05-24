@@ -23,7 +23,7 @@ Route::get('/templates/{template}', 'AngularTemplateController@index');
 // API routes
 
 Route::get('/statistics', [
-    'uses' => 'StatisticsController',
+    'uses' => 'StatisticsController@statistics',
     'as' => 'statistics'
 ]);
 
