@@ -35,15 +35,15 @@ export class ClientListComponent implements OnInit {
                 title: 'ID',
                 sortable: true
             }, {
-                field: 'organisationId',
+                field: 'organisation_id',
                 title: 'Organisation ID',
                 sortable: true
             }, {
-                field: 'firstName',
+                field: 'first_name',
                 title: 'First name',
                 sortable: true
             }, {
-                field: 'lastName',
+                field: 'last_name',
                 title: 'Last name',
                 sortable: true
             }]

@@ -12,7 +12,7 @@ declare var jQuery: any;
 })
 export class WorkerListComponent implements OnInit {
 
-    private worker;
+    private workers;
     private errorMessage;
 
     constructor(private workerService: WorkerService) {
@@ -35,11 +35,11 @@ export class WorkerListComponent implements OnInit {
                 title: 'ID',
                 sortable: true
             }, {
-                field: 'firstName',
+                field: 'first_name',
                 title: 'First name',
                 sortable: true
             }, {
-                field: 'lastName',
+                field: 'last_name',
                 title: 'Last name',
                 sortable: true
             }, {
@@ -58,7 +58,7 @@ export class WorkerListComponent implements OnInit {
         this.workerService
             .getWorkers()
             .subscribe(
-                projects => this.workers = workers,
+                workers => this.workers = workers,
                 error => this.errorMessage = <any>error
             );
     }

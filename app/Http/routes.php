@@ -20,7 +20,8 @@ Route::get('/', [
 // Angular 2 templates route
 Route::get('/templates/{template}', 'AngularTemplateController@index');
 
-// API route
+// API routes
+
 Route::resource('projects', 'ProjectController', [
     'parameters' => 'singular'
 ]);
