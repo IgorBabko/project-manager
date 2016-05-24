@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use ProjectManager\Project;
 
-class ProjectsTableSeeder extends Seeder
+class ProjectTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,9 @@ class ProjectsTableSeeder extends Seeder
     public function run()
     {
         DB::table('projects')->truncate();
-        factory(Project::class, 50)->create();
+        
+        for ($i = 1; $i <= 50; ++$i) {
+            factory(Project::class, 5)->create([ 'client_id' => $i ]);
+        }
     }
 }

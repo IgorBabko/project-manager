@@ -30,8 +30,8 @@ $factory->define(ProjectManager\Project::class, function (Faker\Generator $faker
 
 $factory->define(ProjectManager\Worker::class, function (Faker\Generator $faker) {
     return [
-        'firstName' => $faker->firstName,
-        'lastName' => $faker->lastName,
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
         'age' => $faker->numberBetween(15, 70),
         'salary' => $faker->randomFloat(2, 1000, 100000),
     ];
@@ -39,8 +39,8 @@ $factory->define(ProjectManager\Worker::class, function (Faker\Generator $faker)
 
 $factory->define(ProjectManager\Client::class, function (Faker\Generator $faker) {
     return [
-        'firstName' => $faker->firstName,
-        'lastName' => $faker->lastName,
-        'organisationId' => 1,
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
+        'organisation_id' => 1,
     ];
 });

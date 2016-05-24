@@ -12,7 +12,7 @@ class CreateOrganizationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('organizations', function (Blueprint $table) {
+        Schema::create('organisations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
@@ -28,6 +28,6 @@ class CreateOrganizationsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('organizations');
+        Schema::drop('organisations');
     }
 }
