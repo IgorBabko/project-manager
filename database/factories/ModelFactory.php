@@ -27,3 +27,12 @@ $factory->define(ProjectManager\Project::class, function (Faker\Generator $faker
         'budget' => $faker->randomFloat,
     ];
 });
+
+$factory->define(ProjectManager\Worker::class, function (Faker\Generator $faker) {
+    return [
+        'firstName' => $faker->firstName,
+        'lastName' => $faker->lastName,
+        'age' => $faker->numberBetween(15, 70),
+        'salary' => $faker->randomFloat(2, 1000, 100000),
+    ];
+});
