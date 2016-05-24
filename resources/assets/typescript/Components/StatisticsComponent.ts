@@ -17,6 +17,8 @@ export class StatisticsComponent {
     }
 
     ngOnInit() {
+        this.getStatistics();
+        console.log(this.statistics);
     }
 
     private getStatistics() {
