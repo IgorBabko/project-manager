@@ -8,6 +8,6 @@ use ProjectManager\Client;
 class Organisation extends Model
 {
     public function clients() {
-        return $this->hasMany(Client::class);
+        return $this->hasMany(Client::class)->withTimestamps();
     }
 }

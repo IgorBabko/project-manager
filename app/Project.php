@@ -10,11 +10,11 @@ class Project extends Model
 {
     public function client() {
         
-        $this->belongsTo(Client::class);
+        return $this->belongsTo(Client::class);
     }
     
     public function workers() {
         
-        $this->belongsToMany(Worker::class);
+        return $this->belongsToMany(Worker::class)->withTimestamps();
     }
 }
