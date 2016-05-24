@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
 import { ProjectListComponent } from './ProjectListComponent';
+import { WorkerListComponent } from './WorkerListComponent';
+import { ClientListComponent } from './ClientListComponent';
 import { NavbarComponent } from './NavbarComponent';
 
 @Routes([
