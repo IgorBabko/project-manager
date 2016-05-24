@@ -44,3 +44,9 @@ $factory->define(ProjectManager\Client::class, function (Faker\Generator $faker)
         'organisation_id' => 1,
     ];
 });
+
+$factory->define(ProjectManager\Organisation::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+    ];
+});

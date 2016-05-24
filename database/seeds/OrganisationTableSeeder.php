@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use ProjectManager\Organisation;
 
 class OrganisationTableSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class OrganisationTableSeeder extends Seeder
     {
         DB::table('organisations')->truncate();
         
-        factory(Organisation::class, 20)->create();
+        factory(Organisation::class, 10)->create();
     }
 }

@@ -14,9 +14,5 @@ class WorkerTableSeeder extends Seeder
     {
         DB::table('workers')->truncate();
         factory(Worker::class, 50)->create();
-        
-        for ($i = 1; $i <= 50; ++$i) {
-            factory(Project::class, 5)->create([ 'project_id' => $i ]);
-        }
     }
 }
