@@ -22,9 +22,9 @@
 
 $factory->define(ProjectManager\Project::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'name' => $faker->word(2),
         'description' => $faker->sentence(3),
-        'budget' => $faker->randomFloat,
+        'budget' => $faker->randomFloat(2, 10000, 1000000),
     ];
 });
 
