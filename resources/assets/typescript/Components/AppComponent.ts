@@ -7,6 +7,18 @@ import { NavbarComponent } from './NavbarComponent';
     {
         path: '/',
         component: ProjectListComponent
+    },
+    {
+        path: '/projects',
+        component: ProjectListComponent
+    },
+    {
+        path: '/workers',
+        component: WorkerListComponent
+    },
+    {
+        path: '/clients',
+        component: ClientListComponent
     }
 ])
 @Component({
