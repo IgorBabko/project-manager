@@ -22,6 +22,11 @@ Route::get('/templates/{template}', 'AngularTemplateController@index');
 
 // API routes
 
+Route::get('/statistics', [
+    'uses' => 'StatisticsController',
+    'as' => 'statistics'
+]);
+
 Route::resource('projects', 'ProjectController', [
     'parameters' => 'singular'
 ]);
