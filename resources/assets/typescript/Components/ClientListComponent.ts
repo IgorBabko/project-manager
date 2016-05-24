@@ -1,5 +1,5 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
-import { ProjectService } from '../Services/ClientService';
+import { ClientService } from '../Services/ClientService';
 import { StatisticsComponent } from './StatisticsComponent';
 import { Router } from '@angular/router';
 
