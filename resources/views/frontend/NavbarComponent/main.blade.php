@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-        <a class="navbar-brand" href="index.html">Project Manager</a>
+        <a class="navbar-brand" [routerLink]="['/']">Project Manager</a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
@@ -118,13 +118,13 @@
                 <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
-                <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Projects</a>
+                <a [routerLink]="['/projects']"><i class="fa fa-fw fa-bar-chart-o"></i> Projects</a>
             </li>
             <li>
-                <a href="tables.html"><i class="fa fa-fw fa-table"></i> Workers</a>
+                <a [routerLink]="['/workers']"><i class="fa fa-fw fa-table"></i> Workers</a>
             </li>
             <li>
-                <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Clients</a>
+                <a [routerLink]="['/clients']"><i class="fa fa-fw fa-edit"></i> Clients</a>
             </li>
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
