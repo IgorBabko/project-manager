@@ -14,5 +14,9 @@ class ClientTableSeeder extends Seeder
     {
         DB::table('clients')->truncate();
         factory(Client::class, 50)->create();
+        
+        for ($i = 1; $i <= 10; ++$i) {
+            factory(Client::class, 5)->create([ 'organisation_id' => $i ]);
+        }
     }
 }
