@@ -5,7 +5,7 @@ namespace ProjectManager;
 use Illuminate\Database\Eloquent\Model;
 use ProjectManager\Client;
 
-class Organization extends Model
+class Organisation extends Model
 {
     public function clients() {
         return $this->hasMany(Client::class);
