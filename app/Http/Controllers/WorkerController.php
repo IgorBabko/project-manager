@@ -5,6 +5,7 @@ namespace ProjectManager\Http\Controllers;
 use Illuminate\Http\Request;
 
 use ProjectManager\Http\Requests;
+use ProjectManager\Worker;
 
 class WorkerController extends Controller
 {
@@ -15,7 +16,7 @@ class WorkerController extends Controller
      */
     public function index()
     {
-        //
+        return Worker::all();
     }
 
     /**
@@ -25,7 +26,7 @@ class WorkerController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.app');
     }
 
     /**
