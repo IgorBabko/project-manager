@@ -25,6 +25,14 @@ Route::resource('projects', 'ProjectController', [
     'parameters' => 'singular'
 ]);
 
+Route::resource('workers', 'WorkerController', [
+    'parameters' => 'singular'
+]);
+
+Route::resource('clients', 'ClientController', [
+    'parameters' => 'singular'
+]);
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
