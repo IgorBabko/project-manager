@@ -1,18 +1,18 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
-import { Worker }        from '../Models/WorkerModel'
+import { Client }        from '../Models/ClientModel'
 import 'rxjs';
 
 @Injectable()
-export class WorkerService {
+export class ClientService {
 
     constructor(private http: Http) { }
     
-    private workersUrl = 'workers';
+    private clientsUrl = 'clients';
     
-    getWorkers(): Observable<Worker[]> {
-        return this.http.get(this.workersUrl)
+    getClients(): Observable<Client[]> {
+        return this.http.get(this.clientsUrl)
             .map(this.extractData)
             .catch(this.handleError);
     }
