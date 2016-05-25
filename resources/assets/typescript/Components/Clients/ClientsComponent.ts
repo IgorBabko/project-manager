@@ -3,7 +3,6 @@ import { TableComponent } from './TableComponent';
 import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
 import { Location } from '@angular/common';
 
-
 declare var jQuery: any;
 
 @Routes([
@@ -23,10 +22,6 @@ declare var jQuery: any;
 export class ClientsComponent {
     
     constructor(private location: Location) {
-        console.log(location.path());
-    }
-    
-    private isURL(path: string):boolean {
-        return this.location.path() == path;
+        super(location);
     }
 }

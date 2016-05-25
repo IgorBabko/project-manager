@@ -22,10 +22,6 @@ declare var jQuery: any;
 export class WorkersComponent {
     
     constructor(private location: Location) {
-        console.log(location.path());
-    }
-    
-    private isURL(path: string):boolean {
-        return this.location.path() == path;
+        super(location);
     }
 }

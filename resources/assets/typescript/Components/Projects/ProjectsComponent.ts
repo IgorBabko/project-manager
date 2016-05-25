@@ -3,6 +3,7 @@ import { TableComponent } from './TableComponent';
 import { CreateComponent } from './CreateComponent';
 import { Location } from '@angular/common';
 import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
+import { BaseComponent } from '../../Shared/BaseComponent';
 
 declare var jQuery: any;
 
@@ -20,13 +21,9 @@ declare var jQuery: any;
     'templateUrl': '/templates/projects.index',
     directives: [ ROUTER_DIRECTIVES ]
 })
-export class ProjectsComponent {
+export class ProjectsComponent extends BaseComponent {
     
-    constructor(private location: Location) {
-        console.log(location.path());
-    }
-    
-    private isURL(path: string):boolean {
-        return this.location.path() == path;
+    constructor(location: Location) {
+        super(location);
     }
 }
