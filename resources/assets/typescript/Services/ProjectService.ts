@@ -1,5 +1,5 @@
 import { Injectable }     from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import { Project }        from '../Models/ProjectModel';
 import 'rxjs';
@@ -23,9 +23,11 @@ export class ProjectService {
     }
     
     postProject(project: Project) {
-        let body = JSON.stringify({ project });
+        let body = JSON.stringify(project);
+        console.log(body);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
+        // console.log("body: " + body);
 
         return this.http.post('projects', body, options)
            .catch(this.handleError);

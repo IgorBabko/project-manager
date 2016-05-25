@@ -27,6 +27,7 @@ export class CreateComponent {
     
     public addProject($event) {
         $event.preventDefault();
-        console.log(this.project);
+        this.postProject();
+        // console.log(this.project);
     }
 }
