@@ -1,4 +1,4 @@
-import { Component, Inject, Injectable, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TableComponent } from './TableComponent';
 import { CreateComponent } from './CreateComponent';
 import { Routes, ROUTER_DIRECTIVES } from '@angular/router';

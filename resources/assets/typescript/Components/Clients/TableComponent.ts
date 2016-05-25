@@ -1,16 +1,13 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
-import { ClientService } from '../Services/ClientService';
-import { StatisticsComponent } from './StatisticsComponent';
-import { Router } from '@angular/router';
+import { ClientService } from '../../Services/ClientService';
 
 declare var jQuery: any;
 
 @Component({
-    'templateUrl': '/templates/ClientListComponent.main',
-    providers: [ClientService],
-    directives: [StatisticsComponent]
+    'templateUrl': '/templates/clients.table',
+    providers: [ ClientService ]
 })
-export class ClientListComponent implements OnInit {
+export class TableComponent implements OnInit {
 
     private clients;
     private errorMessage;

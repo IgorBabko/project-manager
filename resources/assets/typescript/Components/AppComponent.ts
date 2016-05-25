@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
 import { ProjectsComponent } from './Projects/ProjectsComponent';
 import { WorkersComponent } from './Workers/WorkersComponent';
-// import { ClientListComponent } from './ClientListComponent';
+import { ClientsComponent } from './Clients/ClientsComponent';
 import { StatisticsComponent } from './StatisticsComponent';
 // import { CreateProjectComponent } from './CreateProjectComponent';
 import { NavbarComponent } from './NavbarComponent';
@@ -23,17 +23,15 @@ import { NavbarComponent } from './NavbarComponent';
     {
         path: '/workers',
         component: WorkersComponent
+    },
+    {
+        path: '/clients',
+        component: ClientsComponent
     }
-    // {
-    //     path: '/clients',
-    //     component: ClientListComponent
-    // }
 ])
 @Component({
     'directives': [ROUTER_DIRECTIVES, NavbarComponent],
     'selector': 'app',
     'templateUrl': '/templates/AppComponent.main'
 })
-export class AppComponent {
-    constructor () {}
-}
+export class AppComponent {}

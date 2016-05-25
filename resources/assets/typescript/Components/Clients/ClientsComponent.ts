@@ -16,10 +16,10 @@ declare var jQuery: any;
     // }
 ])
 @Component({
-    'templateUrl': '/templates/workers.index',
+    'templateUrl': '/templates/clients.index',
     directives: [ ROUTER_DIRECTIVES ]
 })
-export class WorkersComponent {
+export class ClientsComponent {
     
     
 }
