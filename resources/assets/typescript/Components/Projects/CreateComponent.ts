@@ -8,7 +8,11 @@ import { Project } from '../../Models/ProjectModel';
 })
 export class CreateComponent {
     
-    private project: Project;
+    private project: Project = {
+        name: "",
+        budget: "",
+        description: ""
+    };
     
     constructor(private projectService: ProjectService) {}
     
@@ -23,5 +27,10 @@ export class CreateComponent {
                 },
                 error => this.errorMessage = <any>error
             );
+    }
+    
+    public addProject($event) {
+        $event.preventDefault();
+        console.log(this.project);
     }
 }

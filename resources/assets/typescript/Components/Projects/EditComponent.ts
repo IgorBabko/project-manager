@@ -10,6 +10,7 @@ export class EditComponent implements OnInit {
     
     private project: Project;
     private isLoaded: boolean = false;
+    private errorMessage;
     
     constructor(private projectService: ProjectService) {}
     
