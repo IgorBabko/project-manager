@@ -14,6 +14,7 @@
             <label for="description">Description</label>
             <textarea class="form-control" id="description" rows="10" placeholder="Description" [(ngModel)]="project.description"></textarea>
         </div>
+        <a [routerLink]="['/projects']" class="btn btn-default">Cancel</a>
         <button type="submit" class="btn btn-success">Create</button>
     </form>
 </div>

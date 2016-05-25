@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
 import { Project } from '../../Models/ProjectModel';
-import { Router } from '@angular/router';
+import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
     templateUrl: '/templates/projects.create',
-    providers: [ ProjectService ]
+    providers: [ ProjectService ],
+    directives: [ ROUTER_DIRECTIVES ]
 })
 export class CreateComponent {
     
