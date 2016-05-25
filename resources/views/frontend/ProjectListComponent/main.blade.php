@@ -16,6 +16,7 @@
         </div>
         
         <div class="row">
+            <i *ngIf="!isLoaded" class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
             <table id="table"></table>
         </div>
     </div>

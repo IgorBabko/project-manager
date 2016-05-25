@@ -13,23 +13,22 @@ declare var jQuery: any;
 export class ProjectListComponent implements OnInit {
 
     private projects;
+    private isLoaded = false;
     private errorMessage;
 
     constructor(private projectService: ProjectService) {
 
     }
-
-    ngOnInit() {
-        this.getHeroes();
-
+    
+    private initializeTable() {
         jQuery('#table').bootstrapTable({
+            data: this.projects,
             search: true,
             pagination: true,
             showColumns: true,
             showToggle: true,
             showRefresh: true,
             cardView: true,
-            url: '/projects',
             columns: [{
                 field: 'id',
                 title: 'ID',
@@ -50,11 +49,19 @@ export class ProjectListComponent implements OnInit {
         });
     }
 
-    private getHeroes() {
+    ngOnInit() {
+        this.getProjects();
+    }
+
+    private getProjects() {
         this.projectService
             .getProjects()
             .subscribe(
-            projects => this.projects = projects,
+            projects => {
+                this.projects = projects;
+                this.initializeTable();
+                this.isLoaded = true;
+            },
             error => this.errorMessage = <any>error);
     }
 }
