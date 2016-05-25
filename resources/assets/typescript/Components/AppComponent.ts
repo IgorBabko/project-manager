@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
-import { ProjectListComponent } from './ProjectListComponent';
-import { WorkerListComponent } from './WorkerListComponent';
-import { ClientListComponent } from './ClientListComponent';
+import { ProjectsComponent } from './Projects/ProjectsComponent';
+// import { WorkerListComponent } from './WorkerListComponent';
+// import { ClientListComponent } from './ClientListComponent';
 import { StatisticsComponent } from './StatisticsComponent';
+// import { CreateProjectComponent } from './CreateProjectComponent';
 import { NavbarComponent } from './NavbarComponent';
 
 @Routes([
@@ -17,16 +18,16 @@ import { NavbarComponent } from './NavbarComponent';
     },
     {
         path: '/projects',
-        component: ProjectListComponent
-    },
-    {
-        path: '/workers',
-        component: WorkerListComponent
-    },
-    {
-        path: '/clients',
-        component: ClientListComponent
+        component: ProjectsComponent
     }
+    // {
+    //     path: '/workers',
+    //     component: WorkerListComponent
+    // },
+    // {
+    //     path: '/clients',
+    //     component: ClientListComponent
+    // }
 ])
 @Component({
     'directives': [ROUTER_DIRECTIVES, NavbarComponent],

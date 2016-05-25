@@ -1,16 +1,13 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
-import { ProjectService } from '../Services/ProjectService';
-import { StatisticsComponent } from './StatisticsComponent';
-import { Router } from '@angular/router';
+import { ProjectService } from '../../Services/ProjectService';
 
 declare var jQuery: any;
 
 @Component({
-    'templateUrl': '/templates/ProjectListComponent.main',
-    providers: [ProjectService],
-    directives: [StatisticsComponent]
+    'templateUrl': '/templates/projects.table',
+    providers: [ ProjectService ]
 })
-export class ProjectListComponent implements OnInit {
+export class TableComponent implements OnInit {
 
     private projects;
     private isLoaded = false;
