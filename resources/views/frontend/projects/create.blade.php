@@ -1,7 +1,5 @@
 <div class="col-lg-12">
     <form (submit)="addProject($event)">
-        {{ csrf_field() }}
-        {{ method_field("PUT") }}
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control" id="name" placeholder="Name" [(ngModel)]="project.name">

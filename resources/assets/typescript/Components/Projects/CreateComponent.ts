@@ -21,7 +21,7 @@ export class CreateComponent {
                 project => {
                     console.log(project);
                     this.router.navigateByUrl('/projects');
-                    swal("Congratulations!", "The project has been deleted!", "success");
+                    swal("Congratulations!", "The project has been deleted!<br>niko", "success");
                 },
                 errors => {
                     swal("Validation failed", errors, "error");                    
