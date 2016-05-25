@@ -114,16 +114,16 @@
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
-            <li class="active">
+            <li [class.active]="location.path() == ''">
                 <a [routerLink]="['/statistics']"><i class="fa fa-fw fa-dashboard"></i> Statistics</a>
             </li>
-            <li>
+            <li [class.active]="location.path() == 'projects'">
                 <a [routerLink]="['/projects']"><i class="fa fa-fw fa-bar-chart-o"></i> Projects</a>
             </li>
-            <li>
+            <li [class.active]="location.path() == 'workers'">
                 <a [routerLink]="['/workers']"><i class="fa fa-fw fa-table"></i> Workers</a>
             </li>
-            <li>
+            <li [class.active]="location.path() == 'clients'">
                 <a [routerLink]="['/clients']"><i class="fa fa-fw fa-edit"></i> Clients</a>
             </li>
             <li>

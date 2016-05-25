@@ -9,7 +9,7 @@ import { NavbarComponent } from './NavbarComponent';
 @Routes([
     {
         path: '/',
-        component: ProjectListComponent
+        component: StatisticsComponent
     },
     {
         path: '/statistics',

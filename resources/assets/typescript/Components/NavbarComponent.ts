@@ -1,5 +1,7 @@
 import { Component } from '@angular/core'
 import { ROUTER_DIRECTIVES } from '@angular/router'
+import {Location} from '@angular/common';
+
 
 @Component({
     selector: 'navbar',
@@ -8,4 +10,5 @@ import { ROUTER_DIRECTIVES } from '@angular/router'
 })
 export class NavbarComponent {
     
+    constructor(private location: Location) {}
 }
