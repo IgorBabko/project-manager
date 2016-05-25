@@ -8,6 +8,10 @@ export class Project {
         name?: string,
         description?: string,
         budget?: number
-    ) {}
+    ) {
+        this.name = name || '';
+        this.description = description || '';
+        this.budget = budget || '';
+    }
 
 }

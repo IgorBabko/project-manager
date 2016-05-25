@@ -8,11 +8,7 @@ import { Project } from '../../Models/ProjectModel';
 })
 export class CreateComponent {
     
-    private project: Project = {
-        name: "",
-        budget: "",
-        description: ""
-    };
+    private project: Project = new Project();
     
     constructor(private projectService: ProjectService) {}
     
