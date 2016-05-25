@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../Models/ProjectModel';
 import { ProjectService } from '../../Services/ProjectService';
-
+import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 declare var jQuery: any;
 
@@ -15,7 +15,7 @@ export class TableComponent implements OnInit {
     private isLoaded: boolean = false;
     private errorMessage;
 
-    constructor(private projectService: ProjectService) {
+    constructor(private projectService: ProjectService, private router: Router) {
 
     }
     
@@ -45,10 +45,8 @@ export class TableComponent implements OnInit {
                 title: 'Budget',
                 sortable: true
             }],
-            onClickRow: (row, $element) => {
-                console.log(row);
-                
-                this.projectService()
+            onClickRow: (project, $element) => {
+                this.router.navigateByUrl(`/projects/#{project.id}/edit`);
             }
         });
     }
