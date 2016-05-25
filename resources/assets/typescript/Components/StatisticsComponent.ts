@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { StatisticsService } from '../Services/StatisticsService'
 
 @Component({
@@ -7,9 +7,9 @@ import { StatisticsService } from '../Services/StatisticsService'
     providers: [ StatisticsService ],
 
 })
-export class StatisticsComponent {
+export class StatisticsComponent implements OnInit {
     
-    private statistics;
+    private statistics = {};
     private errorMessage;
 
     constructor(private statisticsService: StatisticsService) {
@@ -18,7 +18,6 @@ export class StatisticsComponent {
 
     ngOnInit() {
         this.getStatistics();
-        console.log(this.statistics);
     }
 
     private getStatistics() {

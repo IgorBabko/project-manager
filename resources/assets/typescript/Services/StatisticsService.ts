@@ -18,6 +18,7 @@ export class StatisticsService {
     }
     
     private extractData(res: Response) {
+        console.log(res.json());
         return res.json();
     }
     

@@ -10,8 +10,8 @@
                                 <i class="fa fa-comments fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
-                                <div>New Comments!</div>
+                                <div class="huge">@{{ statistics.projectsCount }}</div>
+                                <div>Projects</div>
                             </div>
                         </div>
                     </div>
@@ -32,8 +32,8 @@
                                 <i class="fa fa-tasks fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
-                                <div>New Tasks!</div>
+                                <div class="huge">@{{ statistics.workersCount }}</div>
+                                <div>Workers</div>
                             </div>
                         </div>
                     </div>
@@ -54,8 +54,8 @@
                                 <i class="fa fa-shopping-cart fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">124</div>
-                                <div>New Orders!</div>
+                                <div class="huge">@{{ statistics.clientsCount }}</div>
+                                <div>Clients</div>
                             </div>
                         </div>
                     </div>

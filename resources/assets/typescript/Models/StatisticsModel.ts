@@ -1,4 +1,4 @@
-export class Worker {
+export class Statistics {
     
     constructor(
         private projectsCount: number,
