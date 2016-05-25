@@ -37,7 +37,11 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request->input('project'), [
+            'name' => 'required',
+            'budget' => 'required|number',
+            'description' => 'required'
+        ]);
     }
 
     /**
@@ -59,7 +63,7 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
