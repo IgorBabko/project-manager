@@ -59,6 +59,15 @@ elixir(function(mix) {
      **/
     mix.copy('node_modules/font-awesome/fonts', 'public/fonts');
 
+    /**
+     * Sweetalert css
+     **/
+    mix.copy('node_modules/sweetalert/dist/sweetalert.css', 'public/css');
+
+    /**
+     * Sweetalert js
+     **/
+    mix.copy('node_modules/sweetalert/dist/sweetalert.min.js', 'public/js');
 
 
     /**
