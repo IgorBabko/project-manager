@@ -3,7 +3,8 @@ import { ProjectService } from '../../Services/ProjectService';
 import { Project } from '../../Models/ProjectModel';
 
 @Component({
-    templateUrl: '/templates/projects.create'
+    templateUrl: '/templates/projects.create',
+    providers: [ ProjectService ]
 })
 export class CreateComponent {
     

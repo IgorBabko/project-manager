@@ -1,6 +1,7 @@
-import { Component, Inject, Injectable, OnInit } from '@angular/core';
-import { ProjectService } from '../../Services/ProjectService';
+import { Component, OnInit } from '@angular/core';
 import { Project } from '../../Models/ProjectModel';
+import { ProjectService } from '../../Services/ProjectService';
+
 
 declare var jQuery: any;
 
@@ -12,7 +13,7 @@ export class TableComponent implements OnInit {
 
     private projects: Project[];
     private isLoaded: boolean = false;
-    private errorMessage<any>;
+    private errorMessage;
 
     constructor(private projectService: ProjectService) {
 

@@ -1,11 +1,12 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
-import { Project }        from '../Models/ProjectModel'
+import { Project }        from '../Models/ProjectModel';
 import 'rxjs';
 
 @Injectable()
 export class ProjectService {
+    
 
     constructor(private http: Http) { }
     
@@ -21,9 +22,13 @@ export class ProjectService {
             .catch(this.handleError);
     }
     
-    postProject() {
-        return this.http.post('projects/update')
-            .catch(this.handleError);
+    postProject(project: Project) {
+        let body = JSON.stringify({ project });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post('projects', body, options)
+           .catch(this.handleError);
     }
     
     private extractData(res: Response) {

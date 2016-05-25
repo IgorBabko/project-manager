@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
 
 @Component({
-    templateUrl: '/templates/projects.edit'
+    templateUrl: '/templates/projects.edit',
+    providers: [ ProjectService ]
 })
 export class EditComponent implements OnInit {
     

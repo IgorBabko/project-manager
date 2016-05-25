@@ -42,6 +42,8 @@ class ProjectController extends Controller
             'budget' => 'required|number',
             'description' => 'required'
         ]);
+        
+        dd($request->input('project'));
     }
 
     /**
@@ -56,14 +58,14 @@ class ProjectController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Return project to edit.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \ProjectManager\Project $project
+     * @return \ProjectManager\Project
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
-        
+        return $project;
     }
 
     /**
