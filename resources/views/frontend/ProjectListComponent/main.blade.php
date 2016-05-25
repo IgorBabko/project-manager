@@ -5,8 +5,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Dashboard <small>overview</small>
+                    Projects
                 </h1>
+                <form action="/projects/create">
+                    <button class="btn btn-primary">New</button>
+                </form>
                 <!--<ol class="breadcrumb">
                     <li class="active">
                         <i class="fa fa-dashboard"></i> Dashboard
@@ -14,9 +17,9 @@
                 </ol>-->
             </div>
         </div>
-        
+
         <div class="row">
-            <i *ngIf="!isLoaded"  class="fa fa-spinner fa-spin fa-5x fa-fw loader-icon"></i>
+            <i *ngIf="!isLoaded" class="fa fa-spinner fa-spin fa-5x fa-fw loader-icon"></i>
             <table id="table"></table>
         </div>
     </div>
