@@ -4,7 +4,6 @@ import { ProjectsComponent } from './Projects/ProjectsComponent';
 import { WorkersComponent } from './Workers/WorkersComponent';
 import { ClientsComponent } from './Clients/ClientsComponent';
 import { StatisticsComponent } from './StatisticsComponent';
-// import { CreateProjectComponent } from './CreateProjectComponent';
 import { NavbarComponent } from './NavbarComponent';
 
 @Routes([

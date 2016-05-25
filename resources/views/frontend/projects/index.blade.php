@@ -4,18 +4,22 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Projects <small>create</small>
+                    Projects <small *ngIf="isURL('/projects/create')">create</small>
                 </h1>
-                <a [routerLink]="['/projects/create']" class="btn btn-primary">New</a>
+                <a [routerLink]="['/projects/create']" 
+                    class="btn btn-primary"
+                    *ngIf="!isURL('/projects/create')">
+                        New
+                </a>
                 <!--<ol class="breadcrumb">
                     <li class="active">
                         <i class="fa fa-dashboard"></i> Dashboard
                     </li>
                 </ol>-->
             </div>
-        </div>
 
-        <router-outlet></router-outlet>
+            <router-outlet></router-outlet>
+        </div>
 
     </div>
 </div>

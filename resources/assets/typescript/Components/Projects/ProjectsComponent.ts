@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TableComponent } from './TableComponent';
 import { CreateComponent } from './CreateComponent';
+import { Location } from '@angular/common';
 import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
 
 declare var jQuery: any;
@@ -21,5 +22,11 @@ declare var jQuery: any;
 })
 export class ProjectsComponent {
     
+    constructor(private location: Location) {
+        console.log(location.path());
+    }
     
+    private isURL(path: string):boolean {
+        return this.location.path() == path;
+    }
 }

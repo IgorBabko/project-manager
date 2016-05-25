@@ -4,9 +4,13 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Workers <small>listing</small>
+                    Workers <small *ngIf="isURL('/workers/create')">create</small>
                 </h1>
-                <a [routerLink]="['/workers/create']" class="btn btn-primary">New</a>
+                <a [routerLink]="['/workers/create']"
+                    class="btn btn-primary"
+                    *ngIf="!isURL('/workers/create')">
+                    New
+                </a>
                 <!--<ol class="breadcrumb">
                     <li class="active">
                         <i class="fa fa-dashboard"></i> Dashboard
