@@ -7,16 +7,16 @@
                 <h1 class="page-header">
                     Dashboard <small>overview</small>
                 </h1>
-                <ol class="breadcrumb">
+                <!--<ol class="breadcrumb">
                     <li class="active">
                         <i class="fa fa-dashboard"></i> Dashboard
                     </li>
-                </ol>
+                </ol>-->
             </div>
         </div>
         
         <div class="row">
-            <i *ngIf="!isLoaded" class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            <i *ngIf="!isLoaded"  class="fa fa-spinner fa-spin fa-5x fa-fw loader-icon"></i>
             <table id="table"></table>
         </div>
     </div>
