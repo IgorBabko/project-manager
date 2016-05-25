@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
 import { Project } from '../../Models/ProjectModel';
+import { Router } from '@angular/router';
 
 @Component({
     templateUrl: '/templates/projects.create',
@@ -10,19 +11,18 @@ export class CreateComponent {
     
     private project: Project = new Project();
     
-    constructor(private projectService: ProjectService) {}
+    constructor(private projectService: ProjectService, private router: Router) {}
     
     public postProject() {
         this.projectService
             .postProject(this.project)
             .subscribe(
                 project => {
-                    // this.project = project;
-                    // this.isLoaded = true;
                     console.log(project);
+                    this.router.navigateByUrl('/projects');
+                    alert(project);
                 },
                 error => {
-                    console.log(error, '++');
                     this.errorMessage = <any>error;
                 }
             );
