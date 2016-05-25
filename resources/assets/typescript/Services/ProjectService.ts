@@ -32,6 +32,16 @@ export class ProjectService {
             .catch(this.handleError);
     }
     
+    updateProject(project: Project) {
+        let body = JSON.stringify(project);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.patch('projects/update', body, options)
+            .map(res => res._body)
+            .catch(this.handleError);
+    }
+    
     private extractData(res: Response) {
         return res.json();
     }

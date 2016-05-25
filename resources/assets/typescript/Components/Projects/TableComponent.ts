@@ -44,7 +44,12 @@ export class TableComponent implements OnInit {
                 field: 'budget',
                 title: 'Budget',
                 sortable: true
-            }]
+            }],
+            onClickRow: (row, $element) => {
+                console.log(row);
+                
+                this.projectService()
+            }
         });
     }
 
