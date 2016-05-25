@@ -1,16 +1,14 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
-import { WorkerService } from '../Services/WorkerService';
-import { StatisticsComponent } from './StatisticsComponent';
+import { WorkerService } from '../../Services/WorkerService';
 import { Router } from '@angular/router';
 
 declare var jQuery: any;
 
 @Component({
-    'templateUrl': '/templates/WorkerListComponent.main',
+    'templateUrl': '/templates/workers.table',
     providers: [WorkerService],
-    directives: [StatisticsComponent]
 })
-export class WorkerListComponent implements OnInit {
+export class TableComponent implements OnInit {
 
     private workers;
     private errorMessage;
