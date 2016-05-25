@@ -25,7 +25,7 @@ export class CreateComponent {
                     swal("Congratulations!", "The project has been deleted!", "success");
                 },
                 errors => {
-                    errors = JSON.parse(errors._body).join('<br>');
+                    errors = '<span class="highlight-red">' + JSON.parse(errors._body).join('<br>') + "</span>";
                     swal({ title: "Validation failed", text: errors, type: "error", html: true});
                     this.isLoading = false;
                 }
