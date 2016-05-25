@@ -28,7 +28,8 @@ export class ProjectService {
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post('projects', body, options)
-           .catch(this.handleError);
+            .map(res => res._body)
+            .catch(this.handleError);
     }
     
     private extractData(res: Response) {

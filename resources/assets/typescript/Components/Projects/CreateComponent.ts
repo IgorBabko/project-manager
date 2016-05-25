@@ -11,6 +11,7 @@ import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 export class CreateComponent {
     
     private project: Project = new Project();
+    private isLoading = false;
     
     constructor(private projectService: ProjectService, private router: Router) {}
     
@@ -21,15 +22,18 @@ export class CreateComponent {
                 project => {
                     console.log(project);
                     this.router.navigateByUrl('/projects');
-                    swal("Congratulations!", "The project has been deleted!<br>niko", "success");
+                    swal("Congratulations!", "The project has been deleted!", "success");
                 },
                 errors => {
-                    swal("Validation failed", errors, "error");                    
+                    errors = JSON.parse(errors._body).join('<br>');
+                    swal({ title: "Validation failed", text: errors, type: "error", html: true});
+                    this.isLoading = false;
                 }
             );
     }
     
     public addProject($event) {
+        this.isLoading = true;
         $event.preventDefault();
         this.postProject();
     }
