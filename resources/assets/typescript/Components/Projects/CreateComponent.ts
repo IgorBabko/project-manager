@@ -22,7 +22,8 @@ export class CreateComponent {
                     console.log(project);
                 },
                 error => {
-                    this.errorMessage = <any>error
+                    console.log(error, '++');
+                    this.errorMessage = <any>error;
                 }
             );
     }

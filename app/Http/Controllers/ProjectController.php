@@ -38,19 +38,19 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {   
-        $validator = Validator::make($request->all(), [
+        $errors = $this->validate($request, [
             'name' => 'required',
             'budget' => 'required|numeric',
             'description' => 'required'
         ]);
-
-        if ($validator->fails()) {
-            return response()->json($validator->errors()->all(), 400);
+        
+        if ($errors) {    
+            return response()->json($errors, 400);
         }
         
-        Project::create($request->all());
+        Project::create($request->all());   
         
-        return ['message' => 'The project has been created!'];
+        return ['notify' => 'The project has been created!'];
     }
 
     /**

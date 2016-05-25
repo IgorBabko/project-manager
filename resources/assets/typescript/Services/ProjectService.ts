@@ -32,15 +32,10 @@ export class ProjectService {
     }
     
     private extractData(res: Response) {
-        console.log(res.json());
         return res.json();
     }
     
     private handleError(error: any) {
-        
-        let errMsg = (error.message) ? error.message :
-            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-            
-        return Observable.throw(errMsg);
+        return Observable.throw(error);
     }
 }
