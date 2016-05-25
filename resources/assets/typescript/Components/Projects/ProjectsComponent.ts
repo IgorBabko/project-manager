@@ -15,6 +15,10 @@ declare var jQuery: any;
     {
         path: '/create',
         component: CreateComponent
+    },
+    {
+        path: '/:id/edit',
+        component: EditComponent
     }
 ])
 @Component({

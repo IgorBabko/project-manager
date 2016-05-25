@@ -9,10 +9,14 @@ export class ProjectService {
 
     constructor(private http: Http) { }
     
-    private projectsUrl = 'projects';
-    
     getProjects(): Observable<Project[]> {
-        return this.http.get(this.projectsUrl)
+        return this.http.get('/projects')
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+    
+    getProject(id: number): Observable<Project> {
+        return this.http.get(`/projects/#{id}/edit`)
             .map(this.extractData)
             .catch(this.handleError);
     }
