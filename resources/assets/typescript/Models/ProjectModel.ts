@@ -1,9 +1,13 @@
 export class Project {
     
+    private name: string;
+    private description: string;
+    private budget: number;
+    
     constructor(
-        private name: string,
-        private description: string,
-        private budget: number
+        name?: string,
+        description?: string,
+        budget?: number
     ) {}
 
 }
