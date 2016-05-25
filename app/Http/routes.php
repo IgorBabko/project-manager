@@ -11,33 +11,7 @@
 |
 */
 
-// Angular 2 base route resolving
-Route::get('/', [
-    'uses' => 'AngularRouteController@index',
-    'as' => 'home'
-]);
 
-// Angular 2 templates route
-Route::get('/templates/{template}', 'AngularTemplateController@index');
-
-// API routes
-
-Route::get('/statistics', [
-    'uses' => 'StatisticsController@statistics',
-    'as' => 'statistics'
-]);
-
-Route::resource('projects', 'ProjectController', [
-    'parameters' => 'singular'
-]);
-
-Route::resource('workers', 'WorkerController', [
-    'parameters' => 'singular'
-]);
-
-Route::resource('clients', 'ClientController', [
-    'parameters' => 'singular'
-]);
 
 /*
 |--------------------------------------------------------------------------
@@ -51,5 +25,32 @@ Route::resource('clients', 'ClientController', [
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    
+    // Angular 2 base route resolving
+    Route::get('/', [
+        'uses' => 'AngularRouteController@index',
+        'as' => 'home'
+    ]);
+
+    // Angular 2 templates route
+    Route::get('/templates/{template}', 'AngularTemplateController@index');
+
+    // API routes
+
+    Route::get('/statistics', [
+        'uses' => 'StatisticsController@statistics',
+        'as' => 'statistics'
+    ]);
+
+    Route::resource('projects', 'ProjectController', [
+        'parameters' => 'singular'
+    ]);
+
+    Route::resource('workers', 'WorkerController', [
+        'parameters' => 'singular'
+    ]);
+
+    Route::resource('clients', 'ClientController', [
+        'parameters' => 'singular'
+    ]);
 });

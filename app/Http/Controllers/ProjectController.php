@@ -11,9 +11,9 @@ use Validator;
 class ProjectController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Return a listing of the projects.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -21,7 +21,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new project.
      *
      * @return \Illuminate\Http\Response
      */
