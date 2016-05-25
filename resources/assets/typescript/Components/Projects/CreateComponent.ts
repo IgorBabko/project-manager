@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class CreateComponent {
     
     private project: Project = new Project();
+    private errorMessage;
     
     constructor(private projectService: ProjectService, private router: Router) {}
     
@@ -20,7 +21,7 @@ export class CreateComponent {
                 project => {
                     console.log(project);
                     this.router.navigateByUrl('/projects');
-                    alert(project);
+                    swal("Good job!", "You clicked the button!", "success");
                 },
                 error => {
                     this.errorMessage = <any>error;

@@ -52,7 +52,7 @@ elixir(function(mix) {
     /**
      * Font awesome css
      **/
-    mix.copy('node_modules/font-awesome/css/font-awesome.min.css', 'public/css/font-awesome.min.css');
+    mix.copy('node_modules/font-awesome/css/font-awesome.min.css', 'public/css');
 
     /**
      * Font awesome fonts
