@@ -21,13 +21,14 @@ export class CreateComponent {
                     // this.isLoaded = true;
                     console.log(project);
                 },
-                error => this.errorMessage = <any>error
+                error => {
+                    this.errorMessage = <any>error
+                }
             );
     }
     
     public addProject($event) {
         $event.preventDefault();
         this.postProject();
-        // console.log(this.project);
     }
 }

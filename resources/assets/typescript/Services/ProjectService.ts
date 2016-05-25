@@ -24,16 +24,15 @@ export class ProjectService {
     
     postProject(project: Project) {
         let body = JSON.stringify(project);
-        console.log(body);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        // console.log("body: " + body);
 
         return this.http.post('projects', body, options)
            .catch(this.handleError);
     }
     
     private extractData(res: Response) {
+        console.log(res.json());
         return res.json();
     }
     

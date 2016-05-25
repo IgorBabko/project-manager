@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use ProjectManager\Http\Requests;
 use ProjectManager\Project;
+use Validator;
 
 class ProjectController extends Controller
 {
@@ -30,20 +31,26 @@ class ProjectController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created project in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $this->validate($request, [
+    {   
+        $validator = Validator::make($request->all(), [
             'name' => 'required',
             'budget' => 'required|numeric',
             'description' => 'required'
         ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->all(), 400);
+        }
         
-        dd($request->input('project'));
+        Project::create($request->all());
+        
+        return ['message' => 'The project has been created!'];
     }
 
     /**
