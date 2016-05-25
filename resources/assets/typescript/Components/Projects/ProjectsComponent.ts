@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { TableComponent } from './TableComponent';
-import { CreateComponent } from './CreateComponent';
 import { Location } from '@angular/common';
-import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
+import { TableComponent } from './TableComponent';
+import { EditComponent } from './EditComponent';
+import { CreateComponent } from './CreateComponent';
 import { BaseComponent } from '../../Shared/BaseComponent';
+import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
 
 declare var jQuery: any;
 

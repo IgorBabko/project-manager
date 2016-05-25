@@ -21,6 +21,11 @@ export class ProjectService {
             .catch(this.handleError);
     }
     
+    postProject() {
+        return this.http.post('projects/update')
+            .catch(this.handleError);
+    }
+    
     private extractData(res: Response) {
         return res.json();
     }

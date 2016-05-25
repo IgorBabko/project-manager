@@ -1,6 +1,6 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
-import { ProjectService } from '../../Models/Project';
+import { Project } from '../../Models/ProjectModel';
 
 declare var jQuery: any;
 
