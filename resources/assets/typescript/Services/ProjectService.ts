@@ -37,7 +37,7 @@ export class ProjectService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.patch('projects/update', body, options)
+        return this.http.patch(`projects/#{project.id}`, body, options)
             .map(res => res._body)
             .catch(this.handleError);
     }

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../Models/ProjectModel';
 import { ProjectService } from '../../Services/ProjectService';
-import { Router, ROUTER_DIRECTIVES } from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 declare var jQuery: any;
 
 @Component({
     'templateUrl': '/templates/projects.table',
-    providers: [ ProjectService ]
+    providers: [ ProjectService ],
+    directives: [ ROUTER_DIRECTIVES ]
 })
 export class TableComponent implements OnInit {
 
@@ -46,6 +47,7 @@ export class TableComponent implements OnInit {
                 sortable: true
             }],
             onClickRow: (project, $element) => {
+                console.log(`/projects/#{project.id}/edit`);
                 this.router.navigateByUrl(`/projects/#{project.id}/edit`);
             }
         });
