@@ -1,34 +1,25 @@
 import { Project } from '../../Models/ProjectModel';
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
-import { Router, ROUTER_DIRECTIVES } from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
     templateUrl: '/templates/projects.edit',
-    providers: [ ProjectService ]
+    providers: [ ProjectService ],
+    directives: [ ROUTER_DIRECTIVES ]
 })
-export class EditComponent implements OnInit {
+export class EditComponent implements OnInit{
     
-    private project: Project;
+    private project: Project = new Project();
     private isLoading: boolean = false;
     private errorMessage;
     
-    constructor(private projectService: ProjectService, private router: Router) {}
+    constructor(private projectService: ProjectService,
+                private router: Router
+                private routeParams: RouteParams) {}
     
     ngOnInit() {
-        this.getProject();
-    }
-    
-    public getProject() {
-        this.projectService
-            .getProject()
-            .subscribe(
-                project => {
-                    this.project = project;
-                    this.isLoaded = true;
-                },
-                error => this.errorMessage = <any>error
-            );
+        this.project = this.projectService.getProject(routeParams.get('id'));
     }
     
     public editProject($event) {
