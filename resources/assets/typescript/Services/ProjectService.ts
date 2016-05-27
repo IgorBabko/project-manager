@@ -2,13 +2,14 @@ import { Injectable }     from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import { Project }        from '../Models/ProjectModel';
+import { RouteParams }        from '@angular/router';
 import 'rxjs';
 
 @Injectable()
 export class ProjectService {
     
 
-    constructor(private http: Http) { }
+    constructor(private http: Http, private routeParams: RouteParams) { }
     
     getProjects(): Observable<Project[]> {
         return this.http.get('/projects')

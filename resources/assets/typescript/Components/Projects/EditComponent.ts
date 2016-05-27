@@ -31,13 +31,8 @@ export class EditComponent implements OnInit{
             );
     }
     
-    public editProject($event) {
-        this.isLoading = true;
+    public updateProject($event) {
         $event.preventDefault();
-        this.updateProject();
-    }
-    
-    public updateProject() {
         this.projectService
             .updateProject(this.project)
             .subscribe(

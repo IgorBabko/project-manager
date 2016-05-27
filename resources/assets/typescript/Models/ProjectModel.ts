@@ -5,6 +5,7 @@ export class Project {
     private budget: number|string;
     
     constructor(
+        id?: number,
         name?: string,
         description?: string,
         budget?: number
