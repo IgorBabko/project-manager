@@ -1,7 +1,7 @@
 import { Project } from '../../Models/ProjectModel';
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import {  ROUTER_DIRECTIVES, Router, RouteParams } from '@angular/router';
 
 @Component({
     templateUrl: '/templates/projects.edit',
@@ -24,7 +24,7 @@ export class EditComponent implements OnInit{
     
     public getProject() {
         this.projectService
-            .getProject(routeParams.get('id'))
+            .getProject(this.routeParams.get('id'))
             .subscribe(
                 project => this.project = project,
                 error => this.errorMessage = error
