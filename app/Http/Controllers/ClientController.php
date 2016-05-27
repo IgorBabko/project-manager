@@ -6,21 +6,22 @@ use Illuminate\Http\Request;
 
 use ProjectManager\Http\Requests;
 use ProjectManager\Client;
+use Validator;
 
 class ClientController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Return a listing of the clients.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        return Client::all();
+        return Client::orderBy('created_at', 'desc')->get();
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new client.
      *
      * @return \Illuminate\Http\Response
      */
@@ -30,14 +31,27 @@ class ClientController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created client in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $errors = $this->validate($request, [
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'age' => 'required|numeric',
+            'salary' => 'required|numeric' 
+        ]);
+        
+        if ($errors) {    
+            return response()->json($errors, 400);
+        }
+        
+        Client::create($request->all());   
+        
+        return ['notify' => 'The client has been added!'];
     }
 
     /**
@@ -52,18 +66,18 @@ class ClientController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Return client to edit.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \ProjectManager\Client $client
+     * @return \ProjectManager\Client
      */
-    public function edit($id)
+    public function edit(Client $client)
     {
-        //
+        return $client;
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the client in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -71,17 +85,32 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $errors = $this->validate($request, [
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'age' => 'required|numeric',
+            'salary' => 'required|numeric'
+        ]);
+        
+        if ($errors) {    
+            return response()->json($errors, 400);
+        }
+        
+        Client::where('id', $id)->update($request->all());   
+        
+        return ['notify' => 'The client has been updated!'];
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified client from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        //
+        Client::destroy($id);
+        
+        return ['notify' => 'The client has been deleted!'];
     }
 }
