@@ -76,7 +76,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the project in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -84,7 +84,19 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $errors = $this->validate($request, [
+            'name' => 'required',
+            'budget' => 'required|numeric',
+            'description' => 'required'
+        ]);
+        
+        if ($errors) {    
+            return response()->json($errors, 400);
+        }
+        
+        Project::where('id', $id)->update($request->all());   
+        
+        return ['notify' => 'The project has been updated!'];
     }
 
     /**

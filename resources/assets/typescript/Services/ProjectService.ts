@@ -33,12 +33,13 @@ export class ProjectService {
     }
     
     updateProject(id: string, project: Project) {
+        console.log(JSON.stringify(project));
         let body = JSON.stringify(project);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
         return this.http.patch(`projects/${id}`, body, options)
-            .map(res => res.json())
+            .map(res => res._body)
             .catch(this.handleError);
     }
     

@@ -1,11 +1,10 @@
 export class Project {
-    
+     
     private name: string;
     private description: string;
     private budget: number|string;
     
     constructor(
-        id?: number,
         name?: string,
         description?: string,
         budget?: number
