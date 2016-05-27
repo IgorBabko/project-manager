@@ -53,14 +53,14 @@ export class EditComponent {
     public deleteProject() {
         swal({
             title: "Are you sure?",
-            text: "You will not be able to recover this imaginary file!",
+            text: "You will not be able to undo this action!",
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "Yes, delete it!",
             closeOnConfirm: false 
-        }, function() {
-            this.projectService()
+        }, () => {
+            this.projectService
                 .deleteProject(this.routeSegment.getParam('id'))
                 .subscribe(
                     data => {
