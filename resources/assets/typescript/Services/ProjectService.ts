@@ -43,6 +43,15 @@ export class ProjectService {
             .catch(this.handleError);
     }
     
+    deleteProject(id: string) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.delete(`projects/${id}`, options)
+            .map(res => res._body)
+            .catch(this.handleError);
+    }
+    
     private extractData(res: Response) {
         return res.json();
     }
