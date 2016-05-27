@@ -10,7 +10,6 @@ export class BaseComponent {
     
     public isURL(path: string):boolean {
         let pathRegExp = new RegExp(path);
-        console.log(pathRegExp);
         return pathRegExp.test(this.location.path());
     }
 }
