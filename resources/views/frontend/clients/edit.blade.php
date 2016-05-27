@@ -9,10 +9,6 @@
             <label for="name">Last name</label>
             <input type="text" class="form-control" id="last_name" placeholder="Last name" [(ngModel)]="client['last_name']">
         </div>
-        <div class="form-group">
-            <label for="budget">Organisation ID</label>
-            <input type="text" class="form-control" id="organisation_id" placeholder="organisation_id" [(ngModel)]="client['organisation_id']">
-        </div>
         <a [routerLink]="['/clients']" class="btn btn-default">Cancel</a>
         <a class="btn btn-danger" (click)="deleteClient()">Delete</a>
         <button type="submit" class="btn btn-success">Create</button>
