@@ -1,18 +1,18 @@
 export class Worker {
      
-    private firstName: string;
-    private lastName: string;
+    private first_name: string;
+    private last_name: string;
     private age: number|string;
     private salary: number|string;
     
     constructor(
-        firstName?: string,
-        lastName?: string,
+        first_name?: string,
+        last_name?: string,
         age?: number|string,
         salary?: number|string
     ) {
-        this.firstName = firstName || '';
-        this.lastName = lastName || '';
+        this.first_name = first_name || '';
+        this.last_name = last_name || '';
         this.age = age || '';
         this.salary = salary || '';
     }

@@ -15,7 +15,7 @@ export class CreateComponent {
     
     constructor(private projectService: WorkerService, private router: Router) {}
     
-    public postProject() {
+    public postWorker() {
         this.workerService
             .postWorker(this.worker)
             .subscribe(

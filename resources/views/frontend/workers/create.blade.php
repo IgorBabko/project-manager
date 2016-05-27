@@ -10,11 +10,11 @@
         </div>
         <div class="form-group">
             <label for="budget">Age</label>
-            <input type="text" class="form-control" id="age" placeholder="Age" [(ngModel)]="worker['age']]">
+            <input type="text" class="form-control" id="age" placeholder="Age" [(ngModel)]="worker['age']">
         </div>
         <div class="form-group">
             <label for="budget">Salary</label>
-            <input type="text" class="form-control" id="salary" placeholder="Salary" [(ngModel)]="worker['salary']]">
+            <input type="text" class="form-control" id="salary" placeholder="Salary" [(ngModel)]="worker['salary']">
         </div>
         <a [routerLink]="['/workers']" class="btn btn-default">Cancel</a>
         <button type="submit" class="btn btn-success">Create</button>
