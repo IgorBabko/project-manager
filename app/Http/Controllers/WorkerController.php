@@ -6,21 +6,22 @@ use Illuminate\Http\Request;
 
 use ProjectManager\Http\Requests;
 use ProjectManager\Worker;
+use Validator;
 
 class WorkerController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Return a listing of the workers.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        return Worker::all();
+        return Worker::orderBy('created_at', 'desc')->get();
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new worker.
      *
      * @return \Illuminate\Http\Response
      */
@@ -30,14 +31,27 @@ class WorkerController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created worker in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $errors = $this->validate($request, [
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'age' => 'required|numeric',
+            'description' => 'required'
+        ]);
+        
+        if ($errors) {    
+            return response()->json($errors, 400);
+        }
+        
+        Worker::create($request->all());   
+        
+        return ['notify' => 'The worker has been added!'];
     }
 
     /**
@@ -52,18 +66,18 @@ class WorkerController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Return worker to edit.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \ProjectManager\Worker $worker
+     * @return \ProjectManager\Worker
      */
-    public function edit($id)
+    public function edit(Worker $worker)
     {
-        //
+        return $worker;
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the worker in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -71,17 +85,32 @@ class WorkerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $errors = $this->validate($request, [
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'age' => 'required|numeric',
+            'description' => 'required'
+        ]);
+        
+        if ($errors) {    
+            return response()->json($errors, 400);
+        }
+        
+        Worker::where('id', $id)->update($request->all());   
+        
+        return ['notify' => 'The worker has been updated!'];
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified worker from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        //
+        Worker::destroy($id);
+        
+        return ['notify' => 'The worker has been deleted!'];
     }
 }
