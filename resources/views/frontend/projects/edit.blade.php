@@ -15,5 +15,6 @@
         </div>
         <a [routerLink]="['/projects']" class="btn btn-default">Cancel</a>
         <button type="submit" class="btn btn-success">Create</button>
+        <i *ngIf="isLoading" class="fa fa-spinner fa-spin fa-fw" style="margin-left: 10px"></i>
     </form>
 </div>

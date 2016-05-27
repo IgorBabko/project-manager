@@ -33,7 +33,7 @@ export class EditComponent {
     
     public updateProject($event) {
         $event.preventDefault();
-        console.log(this.project);
+        this.isLoading = true;        
         this.projectService
             .updateProject(this.routeSegment.getParam('id'), this.project)
             .subscribe(
