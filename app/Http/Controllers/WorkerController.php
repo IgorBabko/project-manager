@@ -42,7 +42,7 @@ class WorkerController extends Controller
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'age' => 'required|numeric',
-            'description' => 'required'
+            'salary' => 'required|numeric' 
         ]);
         
         if ($errors) {    
@@ -89,7 +89,7 @@ class WorkerController extends Controller
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'age' => 'required|numeric',
-            'description' => 'required'
+            'salary' => 'required|numeric'
         ]);
         
         if ($errors) {    
