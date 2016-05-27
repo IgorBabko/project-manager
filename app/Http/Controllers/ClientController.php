@@ -41,8 +41,6 @@ class ClientController extends Controller
         $errors = $this->validate($request, [
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'age' => 'required|numeric',
-            'salary' => 'required|numeric' 
         ]);
         
         if ($errors) {    
@@ -87,9 +85,7 @@ class ClientController extends Controller
     {
         $errors = $this->validate($request, [
             'first_name' => 'required|string',
-            'last_name' => 'required|string',
-            'age' => 'required|numeric',
-            'salary' => 'required|numeric'
+            'last_name' => 'required|string'
         ]);
         
         if ($errors) {    
