@@ -33,12 +33,14 @@ export class EditComponent {
     
     public updateProject($event) {
         $event.preventDefault();
+        console.log(this.project);
         this.projectService
             .updateProject(this.routeSegment.getParam('id'), this.project)
             .subscribe(
-                project => {
+                data => {
+                    data = JSON.parse(data);
                     this.router.navigateByUrl('/projects');
-                    swal("Congratulations!", "The project has been updated!", "success");
+                    swal("Congratulations!", data.notify, "success");
                 },
                 errors => {
                     errors = '<span class="highlight-red">' + JSON.parse(errors._body).join('<br>') + "</span>";

@@ -28,7 +28,7 @@ export class ProjectService {
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post('projects', body, options)
-            .map(res => res.json())
+            .map(res => res._body)
             .catch(this.handleError);
     }
     
