@@ -10,7 +10,7 @@ export class ClientService {
 
     constructor(private http: Http) { }
     
-    getProjects(): Observable<Client[]> {
+    getClients(): Observable<Client[]> {
         return this.http.get('/clients')
             .map(this.extractData)
             .catch(this.handleError);

@@ -1,15 +1,15 @@
 <div class="col-lg-12">
     <form (submit)="addClient($event)">
         <div class="form-group">
-            <label for="name">First name</label>
+            <label for="first_name">First name</label>
             <input type="text" class="form-control" id="first_name" placeholder="First name" [(ngModel)]="client['first_name']">
         </div>
         <div class="form-group">
-            <label for="name">Last name</label>
+            <label for="last_name">Last name</label>
             <input type="text" class="form-control" id="last_name" placeholder="Last name" [(ngModel)]="client['last_name']">
         </div>
         <div class="form-group">
-            <label for="budget">Organisation ID</label>
+            <label for="organisation_id">Organisation ID</label>
             <input type="text" class="form-control" id="organisation_id" placeholder="organisation_id" [(ngModel)]="client['organisation_id']">
         </div>
        
