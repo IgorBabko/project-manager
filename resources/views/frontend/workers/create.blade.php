@@ -1,30 +1,23 @@
 <div class="col-lg-12">
-    <form>
+    <form (submit)="addWorker($event)">
         <div class="form-group">
-            <label for="first_name">First name</label>
-            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First name">
+            <label for="name">First name</label>
+            <input type="text" class="form-control" id="first_name" placeholder="First name" [(ngModel)]="worker['first_name']">
         </div>
         <div class="form-group">
-            <label for="last_name">Last name</label>
-            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last name">
+            <label for="name">Last name</label>
+            <input type="text" class="form-control" id="last_name" placeholder="Last name" [(ngModel)]="worker['last_name']">
         </div>
         <div class="form-group">
-            <label for="age">Age</label>
-            <input type="text" class="form-control" id="age" name="age" placeholder="Age">
+            <label for="budget">Age</label>
+            <input type="text" class="form-control" id="age" placeholder="Age" [(ngModel)]="worker['age']]">
         </div>
         <div class="form-group">
-            <label for="salary">Salary</label>
-            <input type="text" class="form-control" id="salary" name="salary" placeholder="Salary">
+            <label for="budget">Salary</label>
+            <input type="text" class="form-control" id="salary" placeholder="Salary" [(ngModel)]="worker['salary']]">
         </div>
-
-        <!--<div class="form-group">
-            <label for="organisation">Organisation</label>
-            <select id="organisation" name="organisation" class="form-control">
-                <option value="1">First ogranisation</option>
-                <option value="2">Second organisation</option>
-                <option value="3">Third organisation</option>
-            </select>
-        </div>-->
+        <a [routerLink]="['/workers']" class="btn btn-default">Cancel</a>
         <button type="submit" class="btn btn-success">Create</button>
+        <i *ngIf="isLoading" class="fa fa-spinner fa-spin fa-fw" style="margin-left: 10px"></i>
     </form>
 </div>
