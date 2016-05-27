@@ -15,11 +15,20 @@ export class EditComponent implements OnInit{
     private errorMessage;
     
     constructor(private projectService: ProjectService,
-                private router: Router
+                private router: Router,
                 private routeParams: RouteParams) {}
     
     ngOnInit() {
-        this.project = this.projectService.getProject(routeParams.get('id'));
+        this.getProject();
+    }
+    
+    public getProject() {
+        this.projectService
+            .getProject(routeParams.get('id'))
+            .subscribe(
+                project => this.project = project,
+                error => this.errorMessage = error
+            );
     }
     
     public editProject($event) {
