@@ -1,26 +1,28 @@
-import { Component, Inject, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Worker } from '../../Models/WorkerModel';
 import { WorkerService } from '../../Services/WorkerService';
-import { Router } from '@angular/router';
+import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 declare var jQuery: any;
 
 @Component({
     'templateUrl': '/templates/workers.table',
-    providers: [WorkerService],
+    providers: [ WorkerService ],
+    directives: [ ROUTER_DIRECTIVES ]
 })
 export class TableComponent implements OnInit {
 
-    private workers;
+    private workers: Worker[];
+    private isLoaded: boolean = false;
     private errorMessage;
 
-    constructor(private workerService: WorkerService) {
+    constructor(private workerService: WorkerService, private router: Router) {
 
     }
-
-    ngOnInit() {
-        this.getWorkers();
-
+    
+    private initializeTable() {
         jQuery('#table').bootstrapTable({
+            data: this.workers,
             search: true,
             pagination: true,
             showColumns: true,
@@ -48,16 +50,27 @@ export class TableComponent implements OnInit {
                 field: 'salary',
                 title: 'Salary',
                 sortable: true
-            }]
+            }],
+            onClickRow: (worker, $element) => {
+                console.log(`/workers/${worker.id}/edit`);
+                this.router.navigateByUrl(`/workers/${worker.id}/edit`);
+            }
         });
+    }
+
+    ngOnInit() {
+        this.getWorkers();
     }
 
     private getWorkers() {
         this.workerService
             .getWorkers()
             .subscribe(
-                workers => this.workers = workers,
-                error => this.errorMessage = <any>error
-            );
+            workers => {
+                this.workers = workers;
+                this.initializeTable();
+                this.isLoaded = true;
+            },
+            error => this.errorMessage = <any>error);
     }
 }
