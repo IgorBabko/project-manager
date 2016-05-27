@@ -10,13 +10,13 @@ import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 })
 export class CreateComponent {
     
-    private project: Worker = new Worker();
+    private worker: Worker = new Worker();
     private isLoading = false;
     
     constructor(private projectService: WorkerService, private router: Router) {}
     
     public postProject() {
-        this.projectService
+        this.workerService
             .postWorker(this.worker)
             .subscribe(
                 data => {
