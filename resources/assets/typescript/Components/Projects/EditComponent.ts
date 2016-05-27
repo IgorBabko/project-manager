@@ -1,14 +1,14 @@
 import { Project } from '../../Models/ProjectModel';
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
-import {  ROUTER_DIRECTIVES, Router, RouteParams } from '@angular/router';
-
+import {  ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
+console.log('we are at the editComponent method');
 @Component({
     templateUrl: '/templates/projects.edit',
     providers: [ ProjectService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
-export class EditComponent implements OnInit{
+export class EditComponent {
     
     private project: Project = new Project();
     private isLoading: boolean = false;
@@ -16,7 +16,7 @@ export class EditComponent implements OnInit{
     
     constructor(private projectService: ProjectService,
                 private router: Router,
-                private routeParams: RouteParams) {}
+                private routeSegment: RouteSegment) {}
     
     ngOnInit() {
         this.getProject();
@@ -24,7 +24,7 @@ export class EditComponent implements OnInit{
     
     public getProject() {
         this.projectService
-            .getProject(this.routeParams.get('id'))
+            .getProject(this.routeSegment.getParam('id'))
             .subscribe(
                 project => this.project = project,
                 error => this.errorMessage = error
@@ -34,7 +34,7 @@ export class EditComponent implements OnInit{
     public updateProject($event) {
         $event.preventDefault();
         this.projectService
-            .updateProject(this.routeParams.get('id'), this.project)
+            .updateProject(this.routeSegment.getParam('id'), this.project)
             .subscribe(
                 project => {
                     this.router.navigateByUrl('/projects');

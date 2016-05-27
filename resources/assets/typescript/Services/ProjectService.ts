@@ -16,7 +16,7 @@ export class ProjectService {
             .catch(this.handleError);
     }
     
-    getProject(id: number): Observable<Project> {
+    getProject(id: string): Observable<Project> {
         return this.http.get(`/projects/${id}/edit`)
             .map(this.extractData)
             .catch(this.handleError);
@@ -32,7 +32,7 @@ export class ProjectService {
             .catch(this.handleError);
     }
     
-    updateProject(id: number, project: Project) {
+    updateProject(id: string, project: Project) {
         let body = JSON.stringify(project);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
