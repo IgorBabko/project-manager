@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
+import { BaseComponent } from '../Shared/BaseComponent';
 import { ProjectsComponent } from './Projects/ProjectsComponent';
 import { WorkersComponent } from './Workers/WorkersComponent';
 import { ClientsComponent } from './Clients/ClientsComponent';
@@ -33,4 +34,6 @@ import { NavbarComponent } from './NavbarComponent';
     'selector': 'app',
     'templateUrl': '/templates/AppComponent.main'
 })
-export class AppComponent {}
+export class AppComponent extends BaseComponent {
+    
+}

@@ -8,11 +8,9 @@ export class BaseComponent {
         this.location = location;
     }
     
-    public getUrl() {
-        return this.location.path();
-    }
-    
     public isURL(path: string):boolean {
-        return this.location.path() == path;
+        let pathRegExp = new RegExp(path);
+        console.log(pathRegExp);
+        return pathRegExp.test(this.location.path());
     }
 }
