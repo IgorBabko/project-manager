@@ -1,5 +1,5 @@
 <div class="col-lg-12">
-    <form action="/projects/update" method="POST">
+    <form action="/projects/update" (submit)="updateProject($event)" method="POST">
         {{ method_field("PATCH") }}
         <div class="form-group">
             <label for="name">Name</label>

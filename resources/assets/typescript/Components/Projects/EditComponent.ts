@@ -34,7 +34,7 @@ export class EditComponent implements OnInit{
     public updateProject($event) {
         $event.preventDefault();
         this.projectService
-            .updateProject(this.project)
+            .updateProject(this.routeParams.get('id'), this.project)
             .subscribe(
                 project => {
                     this.router.navigateByUrl('/projects');
