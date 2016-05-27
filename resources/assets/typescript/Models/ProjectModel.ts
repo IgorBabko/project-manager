@@ -2,7 +2,7 @@ export class Project {
     
     private name: string;
     private description: string;
-    private budget: number;
+    private budget: number|string;
     
     constructor(
         name?: string,
