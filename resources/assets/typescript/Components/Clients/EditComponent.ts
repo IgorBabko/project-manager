@@ -39,7 +39,7 @@ export class EditComponent {
             .subscribe(
                 data => {
                     data = JSON.parse(data);
-                    this.router.navigateByUrl('/projects');
+                    this.router.navigateByUrl('/clients');
                     swal("Congratulations!", data.notify, "success");
                 },
                 errors => {
