@@ -2,7 +2,7 @@ import { Project } from '../../Models/ProjectModel';
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
 import {  ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
-console.log('we are at the editComponent method');
+
 @Component({
     templateUrl: '/templates/projects.edit',
     providers: [ ProjectService ],
