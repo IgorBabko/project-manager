@@ -4,7 +4,7 @@ import { Client } from '../../Models/ClientModel';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
-    templateUrl: '/templates/projects.create',
+    templateUrl: '/templates/clients.create',
     providers: [ ClientService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
