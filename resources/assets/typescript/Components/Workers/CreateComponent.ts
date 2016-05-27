@@ -13,7 +13,7 @@ export class CreateComponent {
     private worker: Worker = new Worker();
     private isLoading = false;
     
-    constructor(private projectService: WorkerService, private router: Router) {}
+    constructor(private workerService: WorkerService, private router: Router) {}
     
     public postWorker() {
         this.workerService
