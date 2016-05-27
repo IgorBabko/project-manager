@@ -8,7 +8,7 @@
                 </h1>
                 <a [routerLink]="['/projects/create']" 
                     class="btn btn-primary"
-                    *ngIf="!isURL('/projects/create')">
+                    *ngIf="isURL('/projects')">
                         New
                 </a>
                 <!--<ol class="breadcrumb">
