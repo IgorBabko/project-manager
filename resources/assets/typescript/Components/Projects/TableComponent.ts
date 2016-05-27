@@ -69,3 +69,4 @@ export class TableComponent implements OnInit {
             error => this.errorMessage = <any>error);
     }
 }
+
