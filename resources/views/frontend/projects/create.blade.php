@@ -13,15 +13,6 @@
             <textarea class="form-control" id="description" rows="10" placeholder="Description" [(ngModel)]="project.description"></textarea>
         </div>
         <select class="workers" name="workers[]" multiple [(ngModel)]="project.workerIds">
-            <option value="niko">niko</option>
-            <option value="niko">niko</option>
-            <option value="niko">niko</option>
-            <option value="niko">niko</option>
-            <option value="niko">niko</option>
-            <option value="niko">niko</option>
-            <option value="niko">niko</option>
-            <option value="niko">niko</option>
-            <option value="niko">niko</option>
         </select>
         <br>
         <a [routerLink]="['/projects']" class="btn btn-default">Cancel</a>
