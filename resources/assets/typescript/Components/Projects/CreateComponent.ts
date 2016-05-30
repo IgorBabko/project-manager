@@ -30,8 +30,10 @@ export class CreateComponent implements OnInit {
     constructor(private projectService: ProjectService, private workerService: WorkerService, private router: Router) {}
     
     public ngOnInit() {
-        
-        
+        this.getWorkers();
+    }
+    
+    public getWorkers() {
         this.workerService
             .getWorkers()
             .subscribe(
