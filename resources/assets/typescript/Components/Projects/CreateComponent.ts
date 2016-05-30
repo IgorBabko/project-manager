@@ -9,6 +9,12 @@ declare var jQuery: any;
 
 @Component({
     templateUrl: '/templates/projects.create',
+    styles: [`
+        select.workers {
+            color: green;
+            margin-bottom: 20px !important;
+        }        
+    `],
     providers: [ ProjectService, WorkerService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
@@ -18,6 +24,8 @@ export class CreateComponent implements OnInit {
     private workers: Worker[];
     private isLoading = false;
     private errorMessage;
+    
+    private $workersSelect;
     
     constructor(private projectService: ProjectService, private workerService: WorkerService, private router: Router) {}
     
@@ -31,12 +39,12 @@ export class CreateComponent implements OnInit {
                     console.log(workers);
                     this.workers = workers;
                     let workersOptions = '';
-                    let $workersSelect = jQuery('select.workers');
+                    this.$workersSelect = jQuery('select.workers');
                     for(let i = 0; i < this.workers.length; ++i) {
                         workersOptions += `<option value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
                     }
-                    $workersSelect.html(workersOptions);
-                    $workersSelect.selectpicker({
+                    this.$workersSelect.html(workersOptions);
+                    this.$workersSelect.selectpicker({
                         style: 'btn-default',
                         size: 8
                     });
@@ -46,6 +54,9 @@ export class CreateComponent implements OnInit {
     }
     
     public postProject() {
+        this.project.workerIds = this.$workersSelect.val();
+
+        return;
         this.projectService
             .postProject(this.project)
             .subscribe(
