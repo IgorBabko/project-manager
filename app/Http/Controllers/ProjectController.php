@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use ProjectManager\Http\Requests;
 use ProjectManager\Project;
+use ProjectManager\Worker;
 use Validator;
 
 class ProjectController extends Controller
@@ -26,7 +27,7 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
         return view('backend.app');
     }
 

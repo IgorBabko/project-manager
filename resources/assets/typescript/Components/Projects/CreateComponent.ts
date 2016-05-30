@@ -1,27 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
+import { WorkerService } from '../../Services/WorkerService';
 import { Project } from '../../Models/ProjectModel';
+import { Worker } from '../../Models/WorkerModel';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 declare var jQuery: any;
 
 @Component({
     templateUrl: '/templates/projects.create',
-    providers: [ ProjectService ],
+    providers: [ ProjectService, WorkerService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
 export class CreateComponent implements OnInit {
     
     private project: Project = new Project();
+    private workers: Worker[];
     private isLoading = false;
+    private errorMessage;
     
-    constructor(private projectService: ProjectService, private router: Router) {}
+    constructor(private projectService: ProjectService, private workerService: WorkerService, private router: Router) {}
     
     public ngOnInit() {
-        jQuery('.selectpicker').selectpicker({
-            style: 'btn-info',
-            size: 4
-        });
+        
+        
+        this.workerService
+            .getWorkers()
+            .subscribe(
+                workers => {
+                    console.log(workers);
+                    this.workers = workers;
+                    let workersOptions = '';
+                    let $workersSelect = jQuery('select.workers');
+                    for(let i = 0; i < this.workers.length; ++i) {
+                        workersOptions += `<option value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
+                    }
+                    $workersSelect.html(workersOptions);
+                    $workersSelect.selectpicker({
+                        style: 'btn-default',
+                        size: 8
+                    });
+                },
+                error => this.errorMessage = <any>error
+            );
     }
     
     public postProject() {
