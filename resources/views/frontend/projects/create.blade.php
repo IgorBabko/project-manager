@@ -12,10 +12,10 @@
             <label for="description">Description</label>
             <textarea class="form-control" id="description" rows="10" placeholder="Description" [(ngModel)]="project.description"></textarea>
         </div>
-        <select class="selectpicker">
-            <option>Mustard</option>
-            <option>Ketchup</option>
-            <option>Relish</option>
+        <select class="selectpicker" name="workers[]">
+            @foreach ($workers as $worker)
+                <option value="{{ $worker->id }}">{{ $worker->name }}</option>
+            @endforeach
         </select>
         <a [routerLink]="['/projects']" class="btn btn-default">Cancel</a>
         <button type="submit" class="btn btn-success">Create</button>
