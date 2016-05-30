@@ -31,6 +31,8 @@ Route::resource('projects', 'ProjectController', [
     'parameters' => 'singular'
 ]);
 
+Route::get('/projects/{id}/workers', 'ProjectController@workerIds');
+
 Route::resource('workers', 'WorkerController', [
     'parameters' => 'singular'
 ]);
