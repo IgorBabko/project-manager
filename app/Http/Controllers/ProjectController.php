@@ -49,7 +49,9 @@ class ProjectController extends Controller
             return response()->json($errors, 400);
         }
         
-        Project::create($request->all());   
+        $project = new Project($request->except('workerIds'));
+        $project->save();
+        $project->workers()->sync($request->workerIds);
         
         return ['notify' => 'The project has been created!'];
     }

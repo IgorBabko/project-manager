@@ -55,8 +55,6 @@ export class CreateComponent implements OnInit {
     
     public postProject() {
         this.project.workerIds = this.$workersSelect.val();
-
-        return;
         this.projectService
             .postProject(this.project)
             .subscribe(
