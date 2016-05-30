@@ -69,6 +69,16 @@ elixir(function(mix) {
      **/
     mix.copy('node_modules/sweetalert/dist/sweetalert.min.js', 'public/js');
 
+    /**
+     * Bootstrap select css
+     **/
+    mix.copy('node_modules/bootstrap-select/dist/css/bootstrap-select.min.css', 'public/css');
+    
+    /**
+     * Bootstrap select css
+     **/
+    mix.copy('node_modules/bootstrap-select/dist/js/bootstrap-select.min.js', 'public/js');
+
 
     /**
      * Sass

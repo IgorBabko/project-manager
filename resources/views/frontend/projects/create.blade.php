@@ -12,6 +12,11 @@
             <label for="description">Description</label>
             <textarea class="form-control" id="description" rows="10" placeholder="Description" [(ngModel)]="project.description"></textarea>
         </div>
+        <select class="selectpicker">
+            <option>Mustard</option>
+            <option>Ketchup</option>
+            <option>Relish</option>
+        </select>
         <a [routerLink]="['/projects']" class="btn btn-default">Cancel</a>
         <button type="submit" class="btn btn-success">Create</button>
         <i *ngIf="isLoading" class="fa fa-spinner fa-spin fa-fw" style="margin-left: 10px"></i>

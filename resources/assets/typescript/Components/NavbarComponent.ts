@@ -9,6 +9,5 @@ import { Location } from '@angular/common';
     directives: [ROUTER_DIRECTIVES]
 })
 export class NavbarComponent {
-    
     constructor(private location: Location) {}
 }

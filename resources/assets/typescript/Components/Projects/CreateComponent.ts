@@ -1,19 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
 import { Project } from '../../Models/ProjectModel';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
+
+declare var jQuery: any;
 
 @Component({
     templateUrl: '/templates/projects.create',
     providers: [ ProjectService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
-export class CreateComponent {
+export class CreateComponent implements OnInit {
     
     private project: Project = new Project();
     private isLoading = false;
     
     constructor(private projectService: ProjectService, private router: Router) {}
+    
+    public ngOnInit() {
+        jQuery('.selectpicker').selectpicker({
+            style: 'btn-info',
+            size: 4
+        });
+    }
     
     public postProject() {
         this.projectService
