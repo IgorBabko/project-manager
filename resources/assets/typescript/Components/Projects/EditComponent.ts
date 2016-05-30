@@ -1,4 +1,5 @@
 import { Project } from '../../Models/ProjectModel';
+import { Worker } from '../../Models/WorkerModel';
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
 import { WorkerService } from '../../Services/WorkerService';
@@ -16,6 +17,8 @@ export class EditComponent {
     private project: Project = new Project();
     private isLoading: boolean = false;
     private errorMessage;
+    private workers: Worker[];
+    private $workersSelect;
     
     constructor(private projectService: ProjectService,
                 private workerService: WorkerService,
@@ -24,6 +27,29 @@ export class EditComponent {
     
     ngOnInit() {
         this.getProject();
+        this.getWorkers();
+    }
+    
+    public getWorkers() {
+        this.workerService
+            .getWorkers()
+            .subscribe(
+                workers => {
+                    console.log(workers);
+                    this.workers = workers;
+                    let workersOptions = '';
+                    this.$workersSelect = jQuery('select.workers');
+                    for(let i = 0; i < this.workers.length; ++i) {
+                        workersOptions += `<option value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
+                    }
+                    this.$workersSelect.html(workersOptions);
+                    this.$workersSelect.selectpicker({
+                        style: 'btn-default',
+                        size: 8
+                    });
+                },
+                error => this.errorMessage = <any>error
+            );
     }
     
     public getProject() {
