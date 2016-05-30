@@ -30,6 +30,16 @@ class ProjectController extends Controller
     {   
         return view('backend.app');
     }
+    
+    /**
+     * Get ids of all workers that are attached to the particular project.
+     *
+     * @return array
+     */
+    public function workerIds(Project $project)
+    {
+        return $project->workerIds();
+    }
 
     /**
      * Store a newly created project in storage.

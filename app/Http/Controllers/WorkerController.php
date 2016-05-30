@@ -30,6 +30,7 @@ class WorkerController extends Controller
         return view('backend.app');
     }
 
+
     /**
      * Store a newly created worker in storage.
      *
