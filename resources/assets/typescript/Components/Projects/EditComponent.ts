@@ -1,11 +1,14 @@
 import { Project } from '../../Models/ProjectModel';
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
+import { WorkerService } from '../../Services/WorkerService';
 import {  ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
+
+declare var jQuery: any;
 
 @Component({
     templateUrl: '/templates/projects.edit',
-    providers: [ ProjectService ],
+    providers: [ ProjectService, WorkerService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
 export class EditComponent {
@@ -15,6 +18,7 @@ export class EditComponent {
     private errorMessage;
     
     constructor(private projectService: ProjectService,
+                private workerService: WorkerService,
                 private router: Router,
                 private routeSegment: RouteSegment) {}
     

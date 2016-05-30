@@ -10,7 +10,7 @@ declare var jQuery: any;
 @Component({
     templateUrl: '/templates/projects.create',
     styles: [`
-        select.workers {
+        .workers {
             color: green;
             margin-bottom: 20px !important;
         }        
