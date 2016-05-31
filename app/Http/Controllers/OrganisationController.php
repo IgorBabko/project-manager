@@ -50,7 +50,7 @@ class OrganisationController extends Controller
     public function store(Request $request)
     {   
         $errors = $this->validate($request, [
-            'required' => 'required|string',
+            'name' => 'required|string',
         ]);
         
         if ($errors) {    
