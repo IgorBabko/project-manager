@@ -29,7 +29,7 @@ class OrganisationController extends Controller
      */
     public function clientIds(Organisation $organisation)
     {
-        return $organisation->projectIds();
+        return $organisation->clientIds();
     }
 
     /**
