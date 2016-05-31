@@ -22,6 +22,12 @@ export class ClientService {
             .catch(this.handleError);
     }
     
+    getProjectIds(id: number|string): Observable<Array<string>> {
+        return this.http.get(`/clients/${id}/projects`)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+    
     postClient(client: Client) {
         let body = JSON.stringify(client);
         let headers = new Headers({ 'Content-Type': 'application/json' });

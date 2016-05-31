@@ -22,9 +22,8 @@ export class ProjectService {
             .catch(this.handleError);
     }
     
-    getWorkerIds(projectId: number|string): Observable<Array<string>> {
-        console.log('getWorkerIds');
-        return this.http.get(`/projects/${projectId}/workers`)
+    getWorkerIds(id: number|string): Observable<Array<string>> {
+        return this.http.get(`/projects/${id}/workers`)
             .map(this.extractData)
             .catch(this.handleError);
     }
