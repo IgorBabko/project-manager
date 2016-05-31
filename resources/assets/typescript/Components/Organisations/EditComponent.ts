@@ -2,7 +2,7 @@ import { Client } from '../../Models/ClientModel';
 import { Organisation } from '../../Models/OrganisationModel';
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../Services/ClientService';
-import { ProjectService } from '../../Services/ProjectService';
+import { OrganisationService } from '../../Services/OrganisationService';
 import { UtilService } from '../../Services/UtilService';
 import { ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
 
@@ -10,19 +10,19 @@ declare var jQuery: any;
 
 @Component({
     templateUrl: '/templates/organisations.edit',
-    providers: [ ClientService, ProjectService ],
+    providers: [ ClientService, OrganisationService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
 export class EditComponent {
     
-    private client: Organisation = new Organisation();
+    private organisation: Organisation = new Organisation();
     private isLoading: boolean = false;
     private errorMessage;
     private clients: Client[];
     
     constructor(
         private clientService: ClientService,
-        private projectService: ProjectService,
+        private organisationService: OrganisationService,
         private utilService: UtilService,
         private router: Router,
         private routeSegment: RouteSegment
@@ -66,7 +66,7 @@ export class EditComponent {
             .getOrganisation(this.routeSegment.getParam('id'))
             .subscribe(
                 organisation => {
-                    this.organisatino = organisatino;
+                    this.organisation = organisation;
                     this.getClients();
                 },
                 error => this.errorMessage = error
