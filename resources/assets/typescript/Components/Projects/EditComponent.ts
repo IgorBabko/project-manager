@@ -1,8 +1,10 @@
 import { Project } from '../../Models/ProjectModel';
 import { Worker } from '../../Models/WorkerModel';
+import { Client } from '../../Models/ClientModel';
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
 import { WorkerService } from '../../Services/WorkerService';
+import { ClientService } from '../../Services/ClientService';
 import {  ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
 
 declare var jQuery: any;
@@ -19,10 +21,13 @@ export class EditComponent {
     private errorMessage;
     private workers: Worker[];
     private workerIds: Array<string | number>;
+    private clients: Client[];
     private $workersSelect;
+    private $clientSelect;
 
     constructor(private projectService: ProjectService,
         private workerService: WorkerService,
+        private clientService: ClientService,
         private router: Router,
         private routeSegment: RouteSegment) { }
 
@@ -37,9 +42,22 @@ export class EditComponent {
             project => {
                 this.project = project;
                 this.getWorkers();
+                this.getClients();
             },
 
             error => this.errorMessage = error
+            );
+    }
+    
+    public getClients() {
+        this.clientService
+            .getClients()
+            .subscribe(
+            clients => {
+                this.clients = clients;
+                this.buildClientsSelectList();
+            },
+            error => this.errorMessage = <any>error
             );
     }
 
@@ -114,8 +132,8 @@ export class EditComponent {
         });
     }
 
-    public buildSelectList() {
-        let workersOptions = '';
+    public buildWorkersSelectList() {
+        let workerOptions = '';
         this.$workersSelect = jQuery('select.workers');
         let selected;
         for (let i = 0; i < this.workers.length; ++i) {
@@ -123,12 +141,30 @@ export class EditComponent {
             if (jQuery.inArray(this.workers[i]['id'], this.workerIds) !== -1) {
                 selected = 'selected';
             }
-            workersOptions += `<option ${selected} value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
+            workerOptions += `<option ${selected} value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
         }
-        this.$workersSelect.html(workersOptions);
+        this.$workersSelect.html(workerOptions);
         this.$workersSelect.selectpicker({
             style: 'btn-default',
             size: 8
         });
     }
+    
+    public buildClientsSelectList() {
+        let clientOptions = '';
+        this.$clientSelect = jQuery('select.clients');
+        let selected;
+        for (let i = 0; i < this.clients.length; ++i) {
+            if (this.clients[i] == this.project['client_id']) {
+                clientOptions += `<option selected value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
+            }
+            clientOptions += `<option value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
+        }
+        this.$clientSelect.html(clientOptions);
+        this.$clientSelect.selectpicker({
+            style: 'btn-default',
+            size: 8
+        });
+    }
+    
 }
