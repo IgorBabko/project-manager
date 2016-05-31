@@ -43,6 +43,7 @@ export class CreateComponent {
     }
     
     public postWorker() {
+        this.worker.projectIds = jQuery('select.projects').val();
         this.workerService
             .postWorker(this.worker)
             .subscribe(
