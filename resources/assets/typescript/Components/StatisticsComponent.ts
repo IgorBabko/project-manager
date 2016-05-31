@@ -1,3 +1,4 @@
+import { ROUTER_DIRECTIVES } from '@angular/router'
 import { Component, OnInit } from '@angular/core'
 import { StatisticsService } from '../Services/StatisticsService'
 
@@ -5,6 +6,7 @@ import { StatisticsService } from '../Services/StatisticsService'
     selector: 'statistics',
     templateUrl: '/templates/StatisticsComponent.main',
     providers: [ StatisticsService ],
+    directives: [ ROUTER_DIRECTIVES ]
 
 })
 export class StatisticsComponent implements OnInit {
