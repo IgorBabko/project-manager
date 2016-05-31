@@ -22,6 +22,12 @@ export class WorkerService {
             .catch(this.handleError);
     }
     
+    getProjectIds(id: number|string): Observable<Array<string>> {
+        return this.http.get(`/workers/${id}/projects`)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+    
     postWorker(worker: Worker) {
         let body = JSON.stringify(worker);
         let headers = new Headers({ 'Content-Type': 'application/json' });

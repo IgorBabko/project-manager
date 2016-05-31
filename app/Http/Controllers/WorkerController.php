@@ -19,6 +19,16 @@ class WorkerController extends Controller
     {
         return Worker::orderBy('created_at', 'desc')->get();
     }
+    
+    /**
+     * Get ids of all projects that are attached to the particular worker.
+     *
+     * @return array
+     */
+    public function projectIds(Worker $worker)
+    {
+        return $worker->projectIds();
+    }
 
     /**
      * Show the form for creating a new worker.
