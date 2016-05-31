@@ -1,11 +1,13 @@
 import { Worker } from '../../Models/WorkerModel';
 import { Component, OnInit } from '@angular/core';
 import { WorkerService } from '../../Services/WorkerService';
+import { ProjectService } from '../../Services/ProjectService';
+import { UtilService } from '../../Services/UtilService';
 import { ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
 
 @Component({
     templateUrl: '/templates/workers.edit',
-    providers: [ WorkerService ],
+    providers: [ WorkerService, ProjectService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
 export class EditComponent {
@@ -14,12 +16,30 @@ export class EditComponent {
     private isLoading: boolean = false;
     private errorMessage;
     
-    constructor(private workerService: WorkerService,
-                private router: Router,
-                private routeSegment: RouteSegment) {}
+    constructor(
+        private workerService: WorkerService,
+        private projectService: ProjectService,
+        private utilService: UtilService,
+        private router: Router,
+        private routeSegment: RouteSegment
+    ) {}
     
     ngOnInit() {
         this.getWorker();
+    }
+    
+    public getProjects() {
+        this.projectService
+            .getProjects()
+            .subscribe(
+            projects => {
+                this.projects = projects;
+                this.getProjectIds(
+                    this.routeSegment.getParam('id')
+                );
+            },  
+                error => this.errorMessage = <any>error
+            );
     }
     
     public getWorker() {
