@@ -11,9 +11,11 @@ export class UtilService {
         
         if (!selectedItems) {
             
-            for (let i = 0; i < data; ++i) {
+            for (let i = 0; i < data.length; ++i) {
                 selectOptions += this.addOption(data[i]);
             }
+            
+            console.log(selectOptions);
             
         } else if (typeof selectedItems == 'object') {
             
@@ -24,7 +26,7 @@ export class UtilService {
             
         } else {
             
-            for (let i = 0; i < data; ++i) {
+            for (let i = 0; i < data.length; ++i) {
                 selected = data[i]['id'] == selectedItems ? 'selected' : '';
                     selectOptions += this.addOption(data[i], selected);
             }
@@ -39,6 +41,7 @@ export class UtilService {
     }
     
     private initializeBootstrapSelect($el, selectOptions):void {
+        console.log(selectOptions);
         $el.html(selectOptions);
         $el.selectpicker({
             style: 'btn-default',
