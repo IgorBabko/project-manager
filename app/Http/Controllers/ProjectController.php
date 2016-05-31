@@ -108,8 +108,10 @@ class ProjectController extends Controller
             return response()->json($errors, 400);
         }
         
-        Project::where('id', $id)->update($request->except('workerIds'));   
-        
+        $project = Project::find($id);
+        $project->update($request->except('workerIds'));
+        $project->workers()->sync($request->workerIds);
+
         return ['notify' => 'The project has been updated!'];
     }
 
