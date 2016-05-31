@@ -5,7 +5,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
 import { WorkerService } from '../../Services/WorkerService';
 import { ClientService } from '../../Services/ClientService';
+import { UtilService } from '../../Services/UtilService';
 import {  ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
+
+declare var jQuery: any;
+
 
 @Component({
     templateUrl: '/templates/projects.edit',
@@ -26,6 +30,7 @@ export class EditComponent {
     constructor(private projectService: ProjectService,
         private workerService: WorkerService,
         private clientService: ClientService,
+        private utilService: UtilService,
         private router: Router,
         private routeSegment: RouteSegment) { }
 
@@ -80,7 +85,11 @@ export class EditComponent {
             .subscribe(
             workerIds => {
                 this.workerIds = workerIds;
-                this.buildWorkersSelectList();
+                this.utilService.buildSelectList(
+                    jQuery('select.workers'),
+                    this.workers,
+                    workerIds
+                );
             },
             error => this.errorMessage = error
             );
