@@ -40,7 +40,7 @@ export class TableComponent implements OnInit {
                 sortable: true
             }],
             onClickRow: (organisation, $element) => {
-                this.router.navigateByUrl(`/organisation/${organisation.id}/edit`);
+                this.router.navigateByUrl(`/organisations/${organisation.id}/edit`);
             }
         });
     }
