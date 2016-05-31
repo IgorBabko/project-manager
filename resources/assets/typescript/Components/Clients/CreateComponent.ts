@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { ClientService } from '../../Services/ClientService';
+import { ProjectService } from '../../Services/ProjectService';
 import { Client } from '../../Models/ClientModel';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
     templateUrl: '/templates/clients.create',
-    providers: [ ClientService ],
+    providers: [ ClientService, ProjectService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
 export class CreateComponent {
@@ -13,7 +14,11 @@ export class CreateComponent {
     private client: Client = new Client();
     private isLoading = false;
     
-    constructor(private clientService: ClientService, private router: Router) {}
+    constructor(
+        private clientService: ClientService,
+        private projectService: ProjectService,
+        private router: Router
+    ) {}
     
     public postClient() {
         this.clientService
