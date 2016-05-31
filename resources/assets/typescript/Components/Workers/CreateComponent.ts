@@ -5,6 +5,8 @@ import { UtilService } from '../../Services/UtilService';
 import { Worker } from '../../Models/WorkerModel';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
+declare var jQuery: any;
+
 @Component({
     templateUrl: '/templates/workers.create',
     providers: [ WorkerService, ProjectService ],
@@ -14,6 +16,7 @@ export class CreateComponent {
     
     private worker: Worker = new Worker();
     private isLoading = false;
+    private errorMessage;
     
     constructor(
         private workerService: WorkerService,
@@ -24,6 +27,19 @@ export class CreateComponent {
     
     public ngOnInit() {
         this.getProjects();
+    }
+    
+    public getProjects() {
+        this.projectService
+            .getProjects()
+            .subscribe(
+                projects => {
+                    this.utilService.buildSelectList(
+                        jQuery('select.projects'), projects
+                    );
+                },
+                error => this.errorMessage = <any>error
+            );
     }
     
     public postWorker() {
