@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use ProjectManager\Http\Requests;
 use ProjectManager\Organisation;
 use ProjectManager\Project;
+use ProjectManager\Client;
 use Validator;
 
 class OrganisationController extends Controller
