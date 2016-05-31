@@ -63,8 +63,9 @@ class Client extends Model
      */
     public function destroy()
     {
-        $this->destroyProjectRelationship()
-             ->destroy();
+        $this->destroyProjectRelationship();
+             
+        parent::destroy();
     }
     
     /**

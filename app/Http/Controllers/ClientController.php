@@ -58,7 +58,7 @@ class ClientController extends Controller
             return response()->json($errors, 400);
         }
         
-        $client = new Client($request->except('projectIds'));        
+        $client = new Client($request->except('projectIds'));
         $client->save();
         
         Project::whereIn('id', $request->projectIds)->update(['client_id' => $client->id]);
@@ -120,9 +120,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy($id)
+    public function destroy(Client $client)
     {
-        Client::destroy($id);
+        $client->destroy();
         
         return ['notify' => 'The client has been deleted!'];
     }
