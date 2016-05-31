@@ -39,6 +39,8 @@ Route::get('/clients/{client}/projects', 'ClientController@projectIds');
 
 Route::get('/workers/{worker}/projects', 'WorkerController@projectIds');
 
+Route::get('/organisations/{organisation}/clients', 'OrganisationController@clientIds');
+
 Route::resource('workers', 'WorkerController', [
     'parameters' => 'singular'
 ]);
