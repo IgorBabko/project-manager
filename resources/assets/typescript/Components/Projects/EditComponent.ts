@@ -56,6 +56,7 @@ export class EditComponent {
             clients => {
                 this.clients = clients;
                 this.buildClientsSelectList();
+                console.log(clients);
             },
             error => this.errorMessage = <any>error
             );
@@ -155,9 +156,11 @@ export class EditComponent {
         let selected;
         for (let i = 0; i < this.clients.length; ++i) {
             if (this.clients[i]['id'] == this.project['client_id']) {
-                clientOptions += `<option selected value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
+                console.log('ok!');
+                clientOptions += `<option selected value='${this.clients[i]['id']}'>${this.clients[i]['first_name']} ${this.clients[i]['last_name']}</option>`;
+            } else {
+                clientOptions += `<option value='${this.clients[i]['id']}'>${this.clients[i]['first_name']} ${this.clients[i]['last_name']}</option>`;            
             }
-            clientOptions += `<option value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
         }
         this.$clientSelect.html(clientOptions);
         this.$clientSelect.selectpicker({
