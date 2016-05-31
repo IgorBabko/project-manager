@@ -155,7 +155,7 @@ export class EditComponent {
         this.$clientSelect = jQuery('select.clients');
         let selected;
         for (let i = 0; i < this.clients.length; ++i) {
-            if (this.clients[i] == this.project['client_id']) {
+            if (this.clients[i]['id'] == this.project['client_id']) {
                 clientOptions += `<option selected value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
             }
             clientOptions += `<option value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
