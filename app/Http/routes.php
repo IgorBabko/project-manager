@@ -27,11 +27,15 @@ Route::get('/statistics', [
     'as' => 'statistics'
 ]);
 
+
 Route::resource('projects', 'ProjectController', [
     'parameters' => 'singular'
 ]);
 
+
 Route::get('/projects/{project}/workers', 'ProjectController@workerIds');
+
+Route::get('/clients/{client}/projects', 'ClientController@projectIds');
 
 Route::resource('workers', 'WorkerController', [
     'parameters' => 'singular'
