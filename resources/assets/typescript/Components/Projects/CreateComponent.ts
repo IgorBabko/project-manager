@@ -31,13 +31,14 @@ export class CreateComponent implements OnInit {
     constructor(
         private projectService: ProjectService,
         private workerService: WorkerService,
-        private clientService: WorkerService,
+        private clientService: ClientService,
         private utilService: UtilService,
         private router: Router
     ) {}
     
     public ngOnInit() {
         this.getWorkers();
+        this.getClients();
     }
     
     public getWorkers() {
@@ -47,6 +48,19 @@ export class CreateComponent implements OnInit {
                 workers => {
                     this.utilService.buildSelectList(
                         jQuery('select.workers'), workers
+                    );
+                },
+                error => this.errorMessage = <any>error
+            );
+    }
+    
+    public getClients() {
+        this.clientService
+            .getClients()
+            .subscribe(
+                clients => {
+                    this.utilService.buildSelectList(
+                        jQuery('select.clients'), clients
                     );
                 },
                 error => this.errorMessage = <any>error
