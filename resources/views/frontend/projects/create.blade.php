@@ -12,8 +12,10 @@
             <label for="description">Description</label>
             <textarea class="form-control" id="description" rows="10" placeholder="Description" [(ngModel)]="project.description"></textarea>
         </div>
-        <select class="clients" name="client_id" [(ngModel)]="project['client_id']"></select>
-        <br>
+        <div class="forn-group">
+            <label for="client">Client</label><br>
+            <select id="client" class="client" name="client_id" [(ngModel)]="project['client_id']"></select><br>
+        </div>
         <select class="workers" name="workers[]" multiple></select>
         <br>
         <a [routerLink]="['/projects']" class="btn btn-default">Cancel</a>
