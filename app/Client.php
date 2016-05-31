@@ -35,7 +35,7 @@ class Client extends Model
      */
     protected function updateProjectsRelationship($ids)
     {
-        Project::where('client_id', $this->id)->update(['client_id' => null]);
+        $this->destroyProjectRelationship();        
         
         Project::whereIn('id', $ids)->update(['client_id' => $this->id ]);
         
