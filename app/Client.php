@@ -33,7 +33,7 @@ class Client extends Model
      *
      * @return \ProjectManager\Client
      */
-    public function updateProjectsRelationship($ids)
+    protected function updateProjectsRelationship($ids)
     {
         Project::where('client_id', $this->id)->update(['client_id' => null]);
         
@@ -73,7 +73,7 @@ class Client extends Model
      *
      * @return \ProjectManager\Client
      */
-    public function destroyProjectRelationship()
+    protected function destroyProjectRelationship()
     {
         Project::where('client_id', $this->id)->update(['client_id' => null]);        
         
