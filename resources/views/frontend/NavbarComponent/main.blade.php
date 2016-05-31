@@ -126,6 +126,9 @@
             <li [class.active]="location.path() == 'clients'">
                 <a [routerLink]="['/clients']"><i class="fa fa-fw fa-edit"></i> Clients</a>
             </li>
+            <li [class.active]="location.path() == 'organisations'">
+                <a [routerLink]="['/organisations']"><i class="fa fa-fw fa-edit"></i> Organisations</a>
+            </li>
             <li>
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">

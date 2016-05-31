@@ -4,6 +4,7 @@ import { BaseComponent } from '../Shared/BaseComponent';
 import { ProjectsComponent } from './Projects/ProjectsComponent';
 import { WorkersComponent } from './Workers/WorkersComponent';
 import { ClientsComponent } from './Clients/ClientsComponent';
+import { OrganisationsComponent } from './Organisations/OrganisationsComponent';
 import { StatisticsComponent } from './StatisticsComponent';
 import { NavbarComponent } from './NavbarComponent';
 
@@ -27,6 +28,10 @@ import { NavbarComponent } from './NavbarComponent';
     {
         path: '/clients',
         component: ClientsComponent
+    },
+    {
+        path: '/organisations',
+        component: OrganisationsComponent
     }
 ])
 @Component({
