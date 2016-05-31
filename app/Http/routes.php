@@ -47,6 +47,10 @@ Route::resource('clients', 'ClientController', [
     'parameters' => 'singular'
 ]);
 
+Route::resource('organisations', 'OrganisationController', [
+    'parameters' => 'singular'
+]);
+
 
 /*
 |--------------------------------------------------------------------------
