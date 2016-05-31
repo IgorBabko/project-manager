@@ -39,7 +39,6 @@ class ProjectController extends Controller
     public function workerIds(Project $project)
     {
         return $project->workerIds();
-        // return $project->workerIds();
     }
 
     /**

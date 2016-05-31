@@ -20,6 +20,16 @@ class ClientController extends Controller
     {
         return Client::orderBy('created_at', 'desc')->get();
     }
+    
+    /**
+     * Get ids of all projects that are attached to the particular client.
+     *
+     * @return array
+     */
+    public function projectIds(Client $client)
+    {
+        return $client->projectIds();
+    }
 
     /**
      * Show the form for creating a new client.
