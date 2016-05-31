@@ -50,7 +50,9 @@ class WorkerController extends Controller
             return response()->json($errors, 400);
         }
         
-        Worker::create($request->all());   
+        $worker = new Worker($request->except('projectIds'));
+        $worker->save();
+        $worker->projects()->sync($request->projectIds);
         
         return ['notify' => 'The worker has been added!'];
     }
