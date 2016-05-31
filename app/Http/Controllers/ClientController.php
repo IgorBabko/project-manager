@@ -47,7 +47,9 @@ class ClientController extends Controller
             return response()->json($errors, 400);
         }
         
-        Client::create($request->all());   
+        $client = new Client($request->except('projectIds'));
+        $client->save();
+        $client->projects()->sync($request->projectIds);
         
         return ['notify' => 'The client has been added!'];
     }

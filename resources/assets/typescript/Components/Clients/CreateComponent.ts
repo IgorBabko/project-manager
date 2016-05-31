@@ -34,6 +34,7 @@ export class CreateComponent implements OnInit {
             .getProjects()
             .subscribe(
                 projects => {
+                    console.log(projects);
                     this.utilService.buildSelectList(
                         jQuery('select.projects'), projects
                     );
