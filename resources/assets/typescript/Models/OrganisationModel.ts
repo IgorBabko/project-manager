@@ -1,4 +1,4 @@
-export class Client {
+export class Organisation {
      
     private name: string;
     private clientIds: Array<number>;
