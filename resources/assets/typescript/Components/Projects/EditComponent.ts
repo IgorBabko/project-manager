@@ -24,8 +24,6 @@ export class EditComponent {
     private workers: Worker[];
     private workerIds: Array<string | number>;
     private clients: Client[];
-    private $workersSelect;
-    private $clientSelect;
 
     constructor(private projectService: ProjectService,
         private workerService: WorkerService,
@@ -58,10 +56,13 @@ export class EditComponent {
             .subscribe(
             clients => {
                 this.clients = clients;
-                this.buildClientsSelectList();
-                console.log(clients);
-            },
-            error => this.errorMessage = <any>error
+                this.utilService.buildSelectList(
+                    jQuery('select.clients'),
+                    clients,
+                    this.project['client_id']
+                );
+            },  
+                error => this.errorMessage = <any>error
             );
     }
 
@@ -99,7 +100,7 @@ export class EditComponent {
     public updateProject($event) {
         $event.preventDefault();
         this.isLoading = true;
-        this.project.workerIds = this.$workersSelect.val();
+        this.project.workerIds = jQuery('select.workers').val();
 
         this.projectService
             .updateProject(this.routeSegment.getParam('id'), this.project)
