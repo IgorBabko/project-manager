@@ -76,17 +76,4 @@ export class CreateComponent implements OnInit {
         $event.preventDefault();
         this.postProject();
     }
-    
-    public buildWorkersSelectList() {
-        let workerOptions = '';
-        this.$workersSelect = jQuery('select.workers');
-        for (let i = 0; i < this.workers.length; ++i) {
-            workerOptions += `<option value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
-        }
-        this.$workersSelect.html(workerOptions);
-        this.$workersSelect.selectpicker({
-            style: 'btn-default',
-            size: 8
-        });
-    }
 }
