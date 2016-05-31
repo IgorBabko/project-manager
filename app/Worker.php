@@ -13,4 +13,15 @@ class Worker extends Model
         
         return $this->belongsToMany(Project::class)->withTimestamps();
     }
+    
+    /**
+     * Get ids of all projects that are attached to the worker.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     *
+     */    
+    public function projectIds()
+    {
+        return $this->projects()->lists('id');
+    }
 }
