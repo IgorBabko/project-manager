@@ -11,7 +11,7 @@ declare var jQuery: any;
 
 @Component({
     templateUrl: '/templates/projects.edit',
-    providers: [ProjectService, WorkerService],
+    providers: [ProjectService, WorkerService, ClientService],
     directives: [ROUTER_DIRECTIVES]
 })
 export class EditComponent {
@@ -76,13 +76,12 @@ export class EditComponent {
     }
 
     public getWorkerIds(projectId: number | string) {
-        console.log('getWorker id in edit component');
         this.projectService
             .getWorkerIds(projectId)
             .subscribe(
             workerIds => {
                 this.workerIds = workerIds;
-                this.buildSelectList();
+                this.buildWorkersSelectList();
             },
             error => this.errorMessage = error
             );
