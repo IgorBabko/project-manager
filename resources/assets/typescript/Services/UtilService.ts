@@ -68,7 +68,6 @@ export class UtilService {
     }
     
     private addProjectOption(data, selected = ''):string {
-        console.log('ok');
         return `<option ${selected} value='${data['id']}'>${data['name']}</option>`;
     }
     

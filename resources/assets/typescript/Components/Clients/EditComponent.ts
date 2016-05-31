@@ -6,6 +6,8 @@ import { ProjectService } from '../../Services/ProjectService';
 import { UtilService } from '../../Services/UtilService';
 import { ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
 
+declare var jQuery: any;
+
 @Component({
     templateUrl: '/templates/clients.edit',
     providers: [ ClientService, ProjectService ],
@@ -21,7 +23,7 @@ export class EditComponent {
     constructor(
         private clientService: ClientService,
         private projectService: ProjectService,
-        private UtilService: UtilService,
+        private utilService: UtilService,
         private router: Router,
         private routeSegment: RouteSegment
     ) {}
@@ -45,11 +47,10 @@ export class EditComponent {
     }
     
     public getProjectIds(clientId: number | string) {
-        this.projectService
+        this.clientService
             .getProjectIds(clientId)
             .subscribe(
             projectIds => {
-                this.projectIds = projectIds;
                 this.utilService.buildSelectList(
                     jQuery('select.projects'),
                     this.projects,
@@ -74,7 +75,8 @@ export class EditComponent {
     
     public updateClient($event) {
         $event.preventDefault();
-        this.isLoading = true;        
+        this.isLoading = true;  
+        this.client.projectIds = jQuery('select.projects').val();
         this.clientService
             .updateClient(this.routeSegment.getParam('id'), this.client)
             .subscribe(

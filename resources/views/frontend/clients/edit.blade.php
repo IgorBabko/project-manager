@@ -9,6 +9,8 @@
             <label for="name">Last name</label>
             <input type="text" class="form-control" id="last_name" placeholder="Last name" [(ngModel)]="client['last_name']">
         </div>
+        <select class="projects" name="projects[]" multiple></select>
+        <br>
         <a [routerLink]="['/clients']" class="btn btn-default">Cancel</a>
         <a class="btn btn-danger" (click)="deleteClient()">Delete</a>
         <button type="submit" class="btn btn-success">Create</button>
