@@ -11,7 +11,7 @@ declare var jQuery: any;
 
 @Component({
     templateUrl: '/templates/workers.edit',
-    providers: [ WorkerService, ProjectService ],
+    providers: [ WorkerService, ProjectService, ClientService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
 export class EditComponent {
