@@ -42,6 +42,11 @@ class Client extends Model
         return $this;
     }
     
+    /**
+     * Update client with project relationshp.
+     *
+     * @return \ProjectManager\Client
+     */
     public function update(array $attributes = [], array $projectIds = [])
     {
         parent::update($attributes);
