@@ -122,7 +122,7 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        $client->destroy();
+        $client->delete();
         
         return ['notify' => 'The client has been deleted!'];
     }
