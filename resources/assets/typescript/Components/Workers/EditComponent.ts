@@ -7,6 +7,8 @@ import { ClientService } from '../../Services/ClientService';
 import { UtilService } from '../../Services/UtilService';
 import { ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
 
+declare var jQuery: any;
+
 @Component({
     templateUrl: '/templates/workers.edit',
     providers: [ WorkerService, ProjectService ],
