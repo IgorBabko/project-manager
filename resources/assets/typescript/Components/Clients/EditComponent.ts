@@ -8,7 +8,7 @@ import { ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
 
 @Component({
     templateUrl: '/templates/clients.edit',
-    providers: [ ClientService ],
+    providers: [ ClientService, ProjectService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
 export class EditComponent {
