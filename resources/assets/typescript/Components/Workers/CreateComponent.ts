@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { WorkerService } from '../../Services/WorkerService';
+import { ProjectService } from '../../Services/ProjectService';
 import { Worker } from '../../Models/WorkerModel';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
     templateUrl: '/templates/workers.create',
-    providers: [ WorkerService ],
+    providers: [ WorkerService, ProjectService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
 export class CreateComponent {
@@ -13,7 +14,15 @@ export class CreateComponent {
     private worker: Worker = new Worker();
     private isLoading = false;
     
-    constructor(private workerService: WorkerService, private router: Router) {}
+    constructor(
+        private workerService: WorkerService,
+        private projectService: ProjectService,
+        private router: Router
+    ) {}
+    
+    public ngOnInit() {
+        this.getProjects();
+    }
     
     public postWorker() {
         this.workerService
