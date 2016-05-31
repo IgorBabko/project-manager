@@ -67,14 +67,18 @@ export class EditComponent {
         this.workerService
             .getWorker(this.routeSegment.getParam('id'))
             .subscribe(
-                worker => this.worker = worker,
+                worker => {
+                    this.worker = worker;
+                    this.getProjects();
+                },
                 error => this.errorMessage = error
             );
     }
     
     public updateWorker($event) {
         $event.preventDefault();
-        this.isLoading = true;        
+        this.isLoading = true;  
+        this.worker.projectIds = jQuery('select.projects').val();
         this.workerService
             .updateWorker(this.routeSegment.getParam('id'), this.worker)
             .subscribe(
