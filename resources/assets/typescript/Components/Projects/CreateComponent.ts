@@ -23,7 +23,6 @@ declare var jQuery: any;
 export class CreateComponent implements OnInit {
     
     private project: Project = new Project();
-    private workers: Worker[];
     private isLoading = false;
     private errorMessage;
     
@@ -46,8 +45,9 @@ export class CreateComponent implements OnInit {
             .getWorkers()
             .subscribe(
                 workers => {
-                    this.workers = workers;
-                    this.buildWorkersSelectList();
+                    this.utilService.buildSelectList(
+                        jQuery('select.workers'), workers
+                    );
                 },
                 error => this.errorMessage = <any>error
             );
