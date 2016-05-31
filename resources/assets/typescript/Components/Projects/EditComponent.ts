@@ -7,8 +7,6 @@ import { WorkerService } from '../../Services/WorkerService';
 import { ClientService } from '../../Services/ClientService';
 import {  ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
 
-declare var jQuery: any;
-
 @Component({
     templateUrl: '/templates/projects.edit',
     providers: [ProjectService, WorkerService, ClientService],
@@ -131,42 +129,4 @@ export class EditComponent {
                 );
         });
     }
-
-    public buildWorkersSelectList() {
-        let workerOptions = '';
-        this.$workersSelect = jQuery('select.workers');
-        let selected;
-        for (let i = 0; i < this.workers.length; ++i) {
-            selected = '';
-            if (jQuery.inArray(this.workers[i]['id'], this.workerIds) !== -1) {
-                selected = 'selected';
-            }
-            workerOptions += `<option ${selected} value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
-        }
-        this.$workersSelect.html(workerOptions);
-        this.$workersSelect.selectpicker({
-            style: 'btn-default',
-            size: 8
-        });
-    }
-    
-    public buildClientsSelectList() {
-        let clientOptions = '';
-        this.$clientSelect = jQuery('select.clients');
-        let selected;
-        for (let i = 0; i < this.clients.length; ++i) {
-            if (this.clients[i]['id'] == this.project['client_id']) {
-                console.log('ok!');
-                clientOptions += `<option selected value='${this.clients[i]['id']}'>${this.clients[i]['first_name']} ${this.clients[i]['last_name']}</option>`;
-            } else {
-                clientOptions += `<option value='${this.clients[i]['id']}'>${this.clients[i]['first_name']} ${this.clients[i]['last_name']}</option>`;            
-            }
-        }
-        this.$clientSelect.html(clientOptions);
-        this.$clientSelect.selectpicker({
-            style: 'btn-default',
-            size: 8
-        });
-    }
-    
 }
