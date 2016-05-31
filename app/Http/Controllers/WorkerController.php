@@ -62,7 +62,7 @@ class WorkerController extends Controller
         
         $worker = new Worker($request->except('projectIds'));
         $worker->save();
-        $worker->projects()->sync($request->projectIds);
+        $worker->projects()->sync($request->projectIds ?? []);
         
         return ['notify' => 'The worker has been added!'];
     }
@@ -111,7 +111,7 @@ class WorkerController extends Controller
         
         $worker = Worker::find($id);
         $worker->update($request->except('projectIds'));
-        $worker->projects()->sync($request->projectIds);  
+        $worker->projects()->sync($request->projectIds ?? []);  
         
         return ['notify' => 'The worker has been updated!'];
     }

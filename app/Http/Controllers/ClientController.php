@@ -61,7 +61,7 @@ class ClientController extends Controller
         $client = new Client($request->except('projectIds'));
         $client->save();
         
-        Project::whereIn('id', $request->projectIds)->update(['client_id' => $client->id]);
+        Project::whereIn('id', $request->projectIds ?? [])->update(['client_id' => $client->id]);
         
         return ['notify' => 'The client has been added!'];
     }

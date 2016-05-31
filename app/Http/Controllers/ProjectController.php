@@ -61,7 +61,7 @@ class ProjectController extends Controller
         
         $project = new Project($request->except('workerIds'));
         $project->save();
-        $project->workers()->sync($request->workerIds);
+        $project->workers()->sync($request->workerIds ?? []);
         
         return ['notify' => 'The project has been created!'];
     }
@@ -109,7 +109,7 @@ class ProjectController extends Controller
         
         $project = Project::find($id);
         $project->update($request->except('workerIds'));
-        $project->workers()->sync($request->workerIds);
+        $project->workers()->sync($request->workerIds ?? []);
 
         return ['notify' => 'The project has been updated!'];
     }
