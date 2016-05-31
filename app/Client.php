@@ -55,4 +55,27 @@ class Client extends Model
         
         return $this;
     }
+    
+    /**
+     * Destroy client with project relationship.
+     *  
+     * @return void
+     */
+    public function destroy()
+    {
+        $this->destroyProjectRelationship()
+             ->destroy();
+    }
+    
+    /**
+     * Destroy client's project relationshp.
+     *
+     * @return \ProjectManager\Client
+     */
+    public function destroyProjectRelationship()
+    {
+        Project::where('client_id', $this->id)->update(['client_id' => null]);        
+        
+        return $this;
+    }
 }
