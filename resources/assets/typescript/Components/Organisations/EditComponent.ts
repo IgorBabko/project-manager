@@ -1,5 +1,5 @@
 import { Client } from '../../Models/ClientModel';
-import { Project } from '../../Models/ProjectModel';
+import { Organisation } from '../../Models/OrganisationModel';
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../Services/ClientService';
 import { ProjectService } from '../../Services/ProjectService';
