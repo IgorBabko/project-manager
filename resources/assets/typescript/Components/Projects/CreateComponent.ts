@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
 import { WorkerService } from '../../Services/WorkerService';
+import { ClientService } from '../../Services/ClientService';
 import { Project } from '../../Models/ProjectModel';
 import { Worker } from '../../Models/WorkerModel';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
@@ -15,7 +16,7 @@ declare var jQuery: any;
             margin-bottom: 20px !important;
         }        
     `],
-    providers: [ ProjectService, WorkerService ],
+    providers: [ ProjectService, WorkerService, ClientService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
 export class CreateComponent implements OnInit {
@@ -38,18 +39,8 @@ export class CreateComponent implements OnInit {
             .getWorkers()
             .subscribe(
                 workers => {
-                    console.log(workers);
                     this.workers = workers;
-                    let workersOptions = '';
-                    this.$workersSelect = jQuery('select.workers');
-                    for(let i = 0; i < this.workers.length; ++i) {
-                        workersOptions += `<option value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
-                    }
-                    this.$workersSelect.html(workersOptions);
-                    this.$workersSelect.selectpicker({
-                        style: 'btn-default',
-                        size: 8
-                    });
+                    this.buildWorkersSelectList();
                 },
                 error => this.errorMessage = <any>error
             );
@@ -77,5 +68,18 @@ export class CreateComponent implements OnInit {
         this.isLoading = true;
         $event.preventDefault();
         this.postProject();
+    }
+    
+    public buildWorkersSelectList() {
+        let workerOptions = '';
+        this.$workersSelect = jQuery('select.workers');
+        for (let i = 0; i < this.workers.length; ++i) {
+            workerOptions += `<option value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
+        }
+        this.$workersSelect.html(workerOptions);
+        this.$workersSelect.selectpicker({
+            style: 'btn-default',
+            size: 8
+        });
     }
 }
