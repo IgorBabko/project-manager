@@ -17,6 +17,8 @@
             <label for="budget">Salary</label>
             <input type="text" class="form-control" id="salary" placeholder="Salary" [(ngModel)]="worker['salary']">
         </div>
+        <select class="projects" name="projects[]" multiple></select>
+        <br>
         <a [routerLink]="['/workers']" class="btn btn-default">Cancel</a>
         <a class="btn btn-danger" (click)="deleteWorker()">Delete</a>
         <button type="submit" class="btn btn-success">Create</button>
