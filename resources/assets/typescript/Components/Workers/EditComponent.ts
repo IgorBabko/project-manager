@@ -1,7 +1,9 @@
 import { Worker } from '../../Models/WorkerModel';
+import { Project } from '../../Models/ProjectModel';
 import { Component, OnInit } from '@angular/core';
 import { WorkerService } from '../../Services/WorkerService';
 import { ProjectService } from '../../Services/ProjectService';
+import { ClientService } from '../../Services/ClientService';
 import { UtilService } from '../../Services/UtilService';
 import { ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
 
@@ -15,10 +17,12 @@ export class EditComponent {
     private worker: Worker = new Worker();
     private isLoading: boolean = false;
     private errorMessage;
+    private projects: Project[];
     
     constructor(
         private workerService: WorkerService,
         private projectService: ProjectService,
+        private clientService: ClientService,
         private utilService: UtilService,
         private router: Router,
         private routeSegment: RouteSegment
@@ -39,6 +43,21 @@ export class EditComponent {
                 );
             },  
                 error => this.errorMessage = <any>error
+            );
+    }
+    
+    public getProjectIds(clientId: number | string) {
+        this.clientService
+            .getProjectIds(clientId)
+            .subscribe(
+            projectIds => {
+                this.utilService.buildSelectList(
+                    jQuery('select.projects'),
+                    this.projects,
+                    projectIds
+                );
+            },
+            error => this.errorMessage = error
             );
     }
     

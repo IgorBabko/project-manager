@@ -25,12 +25,14 @@ export class EditComponent {
     private workerIds: Array<string | number>;
     private clients: Client[];
 
-    constructor(private projectService: ProjectService,
+    constructor(
+        private projectService: ProjectService,
         private workerService: WorkerService,
         private clientService: ClientService,
         private utilService: UtilService,
         private router: Router,
-        private routeSegment: RouteSegment) { }
+        private routeSegment: RouteSegment
+    ) { }
 
     ngOnInit() {
         this.getProject();
