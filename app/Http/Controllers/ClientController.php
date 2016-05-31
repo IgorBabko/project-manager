@@ -106,7 +106,10 @@ class ClientController extends Controller
             return response()->json($errors, 400);
         }
         
-        Client::where('id', $id)->update($request->all());   
+        Client::find($id)->update(
+            $request->except('projectIds'),
+            $request->projectIds ?? []
+        );
         
         return ['notify' => 'The client has been updated!'];
     }

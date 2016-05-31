@@ -4,13 +4,15 @@ namespace ProjectManager;
 
 use Illuminate\Database\Eloquent\Model;
 use ProjectManager\Project;
+use Illuminate\Http\Request;
 
 class Client extends Model
 {
     protected $guarded = [];
 
     
-    public function projects() {
+    public function projects()
+    {
         
         return $this->hasMany(Project::class);
     }
@@ -24,5 +26,28 @@ class Client extends Model
     public function projectIds()
     {
         return $this->projects()->lists('id');
+    }
+    
+    /**
+     * Sync projects with the client.
+     *
+     * @return \ProjectManager\Client
+     */
+    public function updateProjectsRelationship($ids)
+    {
+        Project::where('client_id', $this->id)->update(['client_id' => null]);
+        
+        Project::whereIn('id', $ids)->update(['client_id' => $this->id ]);
+        
+        return $this;
+    }
+    
+    public function update(array $attributes = [], array $projectIds = [])
+    {
+        parent::update($attributes);
+        
+        $this->updateProjectsRelationship($projectIds);
+        
+        return $this;
     }
 }
