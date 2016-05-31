@@ -99,7 +99,9 @@ class WorkerController extends Controller
             return response()->json($errors, 400);
         }
         
-        Worker::where('id', $id)->update($request->all());   
+        $worker = Worker::find($id);
+        $worker->update($request->except('projectIds'));
+        $worker->projects()->sync($request->projectIds);  
         
         return ['notify' => 'The worker has been updated!'];
     }
