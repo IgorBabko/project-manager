@@ -38,6 +38,7 @@ export class CreateComponent implements OnInit {
                     this.utilService.buildSelectList(
                         jQuery('select.projects'), projects
                     );
+                    console.log('inget Projects');
                 },
                 error => this.errorMessage = <any>error
             );
