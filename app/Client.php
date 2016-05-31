@@ -14,4 +14,15 @@ class Client extends Model
         
         return $this->hasMany(Project::class);
     }
+    
+    /**
+     * Get ids of all projects that are attached to the client.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     *
+     */    
+    public function projectIds()
+    {
+        return $this->projects()->lists('id');
+    }
 }
