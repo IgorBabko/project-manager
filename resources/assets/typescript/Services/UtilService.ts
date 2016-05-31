@@ -15,7 +15,6 @@ export class UtilService {
                 selectOptions += this.addOption(data[i]);
             }
             
-            console.log(selectOptions);
             
         } else if (typeof selectedItems == 'object') {
             
@@ -41,7 +40,6 @@ export class UtilService {
     }
     
     private initializeBootstrapSelect($el, selectOptions):void {
-        console.log(selectOptions);
         $el.html(selectOptions);
         $el.selectpicker({
             style: 'btn-default',

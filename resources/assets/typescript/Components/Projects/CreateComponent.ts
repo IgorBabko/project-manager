@@ -68,7 +68,7 @@ export class CreateComponent implements OnInit {
     }
     
     public postProject() {
-        this.project.workerIds = this.$workersSelect.val();
+        this.project.workerIds = jQuery('select.workers').val();
         this.projectService
             .postProject(this.project)
             .subscribe(
