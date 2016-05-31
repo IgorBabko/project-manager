@@ -93,7 +93,7 @@ export class EditComponent {
             );
     }
     
-    public deleteClient() {
+    public deleteOrganisation() {
         swal({
             title: "Are you sure?",
             text: "You will not be able to undo this action!",
