@@ -40,7 +40,6 @@ export class EditComponent {
             .subscribe(
             projects => {
                 this.projects = projects;
-                console.log(this.projects);
                 this.getProjectIds(
                     this.routeSegment.getParam('id')
                 );
@@ -54,7 +53,6 @@ export class EditComponent {
             .getProjectIds(clientId)
             .subscribe(
             projectIds => {
-                console.log(projectIds);
                 this.utilService.buildSelectList(
                     jQuery('select.projects'),
                     this.projects,
