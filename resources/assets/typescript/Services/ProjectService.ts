@@ -22,6 +22,13 @@ export class ProjectService {
             .catch(this.handleError);
     }
     
+    getWorkerIds(projectId: number|string): Observable<Array<string>> {
+        console.log('getWorkerIds');
+        return this.http.get(`/projects/${projectId}/workers`)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+    
     postProject(project: Project) {
         let body = JSON.stringify(project);
         let headers = new Headers({ 'Content-Type': 'application/json' });

@@ -19,5 +19,4 @@ export class Worker {
         this.age = age || '';
         this.salary = salary || '';
     }
-
 }

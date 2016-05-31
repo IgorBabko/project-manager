@@ -39,6 +39,7 @@ class ProjectController extends Controller
     public function workerIds(Project $project)
     {
         return $project->workerIds();
+        // return $project->workerIds();
     }
 
     /**
@@ -107,7 +108,7 @@ class ProjectController extends Controller
             return response()->json($errors, 400);
         }
         
-        Project::where('id', $id)->update($request->all());   
+        Project::where('id', $id)->update($request->except('workerIds'));   
         
         return ['notify' => 'The project has been updated!'];
     }

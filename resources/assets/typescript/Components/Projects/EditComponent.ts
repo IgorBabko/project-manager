@@ -18,6 +18,7 @@ export class EditComponent {
     private isLoading: boolean = false;
     private errorMessage;
     private workers: Worker[];
+    private workerIds: Array<string|number>;
     private $workersSelect;
     
     constructor(private projectService: ProjectService,
@@ -27,7 +28,19 @@ export class EditComponent {
     
     ngOnInit() {
         this.getProject();
-        this.getWorkers();
+    }
+    
+    public getProject() {
+        this.projectService
+            .getProject(this.routeSegment.getParam('id'))
+            .subscribe(
+                project => {
+                    this.project = project;
+                    this.getWorkers();
+                },
+                
+                error => this.errorMessage = error
+            );
     }
     
     public getWorkers() {
@@ -35,31 +48,28 @@ export class EditComponent {
             .getWorkers()
             .subscribe(
                 workers => {
-                    console.log(workers);
                     this.workers = workers;
-                    let workersOptions = '';
-                    this.$workersSelect = jQuery('select.workers');
-                    for(let i = 0; i < this.workers.length; ++i) {
-                        workersOptions += `<option value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
-                    }
-                    this.$workersSelect.html(workersOptions);
-                    this.$workersSelect.selectpicker({
-                        style: 'btn-default',
-                        size: 8
-                    });
+                    this.getWorkerIds(
+                        this.routeSegment.getParam('id')
+                    );
                 },
                 error => this.errorMessage = <any>error
             );
     }
     
-    public getProject() {
+    public getWorkerIds(projectId: number|string) {
+        console.log('getWorker id in edit component');
         this.projectService
-            .getProject(this.routeSegment.getParam('id'))
+            .getWorkerIds(projectId)
             .subscribe(
-                project => this.project = project,
+                workerIds => {
+                    this.workerIds = workerIds;
+                    this.buildSelectList();
+                },
                 error => this.errorMessage = error
             );
     }
+    
     
     public updateProject($event) {
         $event.preventDefault();
@@ -99,6 +109,24 @@ export class EditComponent {
                         swal("Congratulations!", data.notify, "success");
                     }
             );
+        });
+    }
+    
+    public buildSelectList() {
+        let workersOptions = '';
+        this.$workersSelect = jQuery('select.workers');
+        let selected;
+        for(let i = 0; i < this.workers.length; ++i) {
+            selected = '';    
+            if (jQuery.inArray(this.workers[i]['id'], this.workerIds)) {
+                selected = 'selected';
+            }
+            workersOptions += `<option ${selected} value='${this.workers[i]['id']}'>${this.workers[i]['first_name']} ${this.workers[i]['last_name']}</option>`;
+        }
+        this.$workersSelect.html(workersOptions);
+        this.$workersSelect.selectpicker({
+            style: 'btn-default',
+            size: 8
         });
     }
 }
