@@ -45,6 +45,7 @@ export class CreateComponent implements OnInit {
     }
     
     public postClient() {
+        this.client.projectIds = jQuery('select.projects').val();
         this.clientService
             .postClient(this.client)
             .subscribe(

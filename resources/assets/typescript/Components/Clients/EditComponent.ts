@@ -1,6 +1,9 @@
 import { Client } from '../../Models/ClientModel';
+import { Project } from '../../Models/ProjectModel';
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../Services/ClientService';
+import { ProjectService } from '../../Services/ProjectService';
+import { UtilService } from '../../Services/UtilService';
 import { ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
 
 @Component({
@@ -13,20 +16,58 @@ export class EditComponent {
     private client: Client = new Client();
     private isLoading: boolean = false;
     private errorMessage;
+    private projects: Project[];
     
-    constructor(private clientService: ClientService,
-                private router: Router,
-                private routeSegment: RouteSegment) {}
+    constructor(
+        private clientService: ClientService,
+        private projectService: ProjectService,
+        private UtilService: UtilService,
+        private router: Router,
+        private routeSegment: RouteSegment
+    ) {}
     
     ngOnInit() {
         this.getClient();
+    }
+    
+    public getProjects() {
+        this.projectService
+            .getProjects()
+            .subscribe(
+            projects => {
+                this.projects = projects;
+                this.getProjectIds(
+                    this.routeSegment.getParam('id')
+                );
+            },  
+                error => this.errorMessage = <any>error
+            );
+    }
+    
+    public getProjectIds(clientId: number | string) {
+        this.projectService
+            .getProjectIds(clientId)
+            .subscribe(
+            projectIds => {
+                this.projectIds = projectIds;
+                this.utilService.buildSelectList(
+                    jQuery('select.projects'),
+                    this.projects,
+                    projectIds
+                );
+            },
+            error => this.errorMessage = error
+            );
     }
     
     public getClient() {
         this.clientService
             .getClient(this.routeSegment.getParam('id'))
             .subscribe(
-                client => this.client = client,
+                client => {
+                    this.client = client;
+                    this.getProjects();
+                },
                 error => this.errorMessage = error
             );
     }

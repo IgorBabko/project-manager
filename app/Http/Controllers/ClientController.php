@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use ProjectManager\Http\Requests;
 use ProjectManager\Client;
+use ProjectManager\Project;
 use Validator;
 
 class ClientController extends Controller
@@ -47,9 +48,10 @@ class ClientController extends Controller
             return response()->json($errors, 400);
         }
         
-        $client = new Client($request->except('projectIds'));
+        $client = new Client($request->except('projectIds'));        
         $client->save();
-        $client->projects()->sync($request->projectIds);
+        
+        Project::whereIn('id', $request->projectIds)->update(['client_id' => $client->id]);
         
         return ['notify' => 'The client has been added!'];
     }

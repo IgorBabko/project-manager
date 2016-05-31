@@ -14,7 +14,7 @@
         </div>
         <select class="clients" name="client_id" [(ngModel)]="project['client_id']"></select>
         <br>
-        <select class="workers" name="workers[]" multiple [(ngModel)]="project.workerIds"></select>
+        <select class="workers" name="workers[]" multiple></select>
         <br>
         <a [routerLink]="['/projects']" class="btn btn-default">Cancel</a>
         <button type="submit" class="btn btn-success">Create</button>
