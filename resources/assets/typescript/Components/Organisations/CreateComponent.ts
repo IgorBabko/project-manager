@@ -9,17 +9,18 @@ declare var jQuery: any;
 
 @Component({
     templateUrl: '/templates/organisations.create',
-    providers: [ OrganisationService ],
+    providers: [ OrganisationService, ClientService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
 export class CreateComponent implements OnInit {
     
-    private client: Organisation = new Organisation();
+    private organisation: Organisation = new Organisation();
     private isLoading = false;
     private errorMessage;
     
     constructor(
         private clientService: ClientService,
+        private organisationService: OrganisationService,
         private utilService: UtilService,
         private router: Router
     ) {}
