@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core'
 import { ROUTER_DIRECTIVES } from '@angular/router'
 import { Location }          from '@angular/common';
-import { StatisticsService } from '../Services/StatisticsService';
-import { Statistics }        from '../Models/StatisticsModel';
+import { StatisticsService } from '../../Services/StatisticsService';
+import { Statistics }        from '../../Models/StatisticsModel';
 
 
 @Component({
     selector: 'pm-sidebar',
-    templateUrl: '/templates/SidebarComponent.main',
+    templateUrl: '/templates/partials.sidebar',
     directives: [ROUTER_DIRECTIVES],
     providers: [ StatisticsService, Location ]
     
@@ -25,8 +25,6 @@ export class SidebarComponent implements OnInit {
     
     ngOnInit() {
         this.getStatistics();
-        console.log(this.location.path());
-        console.log('niko');
     }
 
     private getStatistics() {
@@ -39,7 +37,6 @@ export class SidebarComponent implements OnInit {
     }
     
     public updateUrl(url) {
-        console.log(url);
         this.url = url;
     }
 }

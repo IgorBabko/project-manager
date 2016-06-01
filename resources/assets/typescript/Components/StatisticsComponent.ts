@@ -5,7 +5,7 @@ import { Statistics }        from '../Models/StatisticsModel';
 
 @Component({
     selector: 'statistics',
-    templateUrl: '/templates/StatisticsComponent.main',
+    templateUrl: '/templates/statistics',
     providers: [ StatisticsService ],
     directives: [ ROUTER_DIRECTIVES ]
 

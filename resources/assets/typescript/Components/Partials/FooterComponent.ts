@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 
 @Component({
     selector: 'pm-footer',
-    templateUrl: '/templates/FooterComponent.main',
+    templateUrl: '/templates/partials.footer',
     directives: [ROUTER_DIRECTIVES]
 })
 export class FooterComponent {

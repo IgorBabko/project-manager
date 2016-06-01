@@ -9,5 +9,3 @@
     <pm-footer></pm-footer>
 
 </div>
-
-<!-- <router-outlet></router-outlet> -->

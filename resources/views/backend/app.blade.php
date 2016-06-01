@@ -14,11 +14,9 @@
     </head>
     <body class="skin-black">
     
-        <div id="wrapper">
-            <app>
-                @include('backend.partials.loading')
-            </app>
-        </div>
+        <app>
+            @include('backend.partials.loading')
+        </app>
 
         @include('backend.partials.scripts')
         

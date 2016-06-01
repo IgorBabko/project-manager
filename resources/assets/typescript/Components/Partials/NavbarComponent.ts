@@ -6,7 +6,7 @@ declare var jQuery: any;
 
 @Component({
     selector: 'pm-navbar',
-    templateUrl: '/templates/NavbarComponent.main',
+    templateUrl: '/templates/partials.navbar',
     directives: [ROUTER_DIRECTIVES]
 })
 export class NavbarComponent {

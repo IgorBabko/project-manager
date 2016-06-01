@@ -7,10 +7,10 @@ import { ClientsComponent } from './Clients/ClientsComponent';
 import { OrganisationsComponent } from './Organisations/OrganisationsComponent';
 import { StatisticsComponent } from './StatisticsComponent';
 
-import { HeaderComponent } from './HeaderComponent';
-import { NavbarComponent } from './NavbarComponent';
-import { SidebarComponent } from './SidebarComponent';
-import { ContentComponent } from './ContentComponent';
+import { HeaderComponent } from './Partials/HeaderComponent';
+import { NavbarComponent } from './Partials/NavbarComponent';
+import { SidebarComponent } from './Partials/SidebarComponent';
+import { ContentComponent } from './Partials/ContentComponent';
 
 @Routes([
     {
@@ -47,7 +47,7 @@ import { ContentComponent } from './ContentComponent';
             ContentComponent
         ],
     'selector': 'app',
-    'templateUrl': '/templates/AppComponent.main'
+    'templateUrl': '/templates/app'
 })
 export class AppComponent extends BaseComponent {
     

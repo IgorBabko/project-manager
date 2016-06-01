@@ -5,7 +5,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router'
 
 @Component({
     selector: 'pm-header',
-    templateUrl: '/templates/HeaderComponent.main',
+    templateUrl: '/templates/partials.header',
     directives: [ ROUTER_DIRECTIVES, NavbarComponent ]
 })
 export class HeaderComponent {

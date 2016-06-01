@@ -6,7 +6,7 @@ import { FooterComponent } from './FooterComponent';
 
 @Component({
     selector: 'pm-content',
-    templateUrl: '/templates/ContentComponent.main',
+    templateUrl: '/templates/partials.content',
     directives: [ ROUTER_DIRECTIVES, FooterComponent ]
 })
 export class ContentComponent {
