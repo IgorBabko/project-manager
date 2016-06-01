@@ -14,11 +14,11 @@
         </div>
         <div class="form-group">
             <label for="client">Client</label><br>
-            <select id="client" class="client" name="client_id" [(ngModel)]="project['client_id']"></select><br>
+            <select id="client" class="form-control client" name="client_id" [(ngModel)]="project['client_id']"></select><br>
         </div>
         <div class="form-group">
             <label for="workers">Workers</label><br>
-            <select id="workers" class="workers" name="workers[]" multiple></select><br>
+            <select id="workers" class="form-control workers" name="workers[]" multiple></select><br>
         </div>
         <br>
         <a [routerLink]="['/projects']" class="btn btn-default">Cancel</a>

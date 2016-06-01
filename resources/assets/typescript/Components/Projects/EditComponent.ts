@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../Services/ProjectService';
 import { WorkerService } from '../../Services/WorkerService';
 import { ClientService } from '../../Services/ClientService';
-import { UtilService } from '../../Services/UtilService';
+import { SelectListService } from '../../Services/SelectListService';
 import {  ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
 
 declare var jQuery: any;
@@ -29,7 +29,7 @@ export class EditComponent {
         private projectService: ProjectService,
         private workerService: WorkerService,
         private clientService: ClientService,
-        private utilService: UtilService,
+        private selectListService: SelectListService,
         private router: Router,
         private routeSegment: RouteSegment
     ) { }
@@ -58,7 +58,7 @@ export class EditComponent {
             .subscribe(
             clients => {
                 this.clients = clients;
-                this.utilService.buildSelectList(
+                this.selectListService.buildSelectList(
                     jQuery('select.client'),
                     clients,
                     this.project['client_id']
@@ -88,7 +88,7 @@ export class EditComponent {
             .subscribe(
             workerIds => {
                 this.workerIds = workerIds;
-                this.utilService.buildSelectList(
+                this.selectListService.buildSelectList(
                     jQuery('select.workers'),
                     this.workers,
                     workerIds

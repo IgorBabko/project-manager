@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { WorkerService } from '../../Services/WorkerService';
 import { ProjectService } from '../../Services/ProjectService';
-import { UtilService } from '../../Services/UtilService';
+import { SelectListService } from '../../Services/SelectListService';
 import { Worker } from '../../Models/WorkerModel';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
@@ -21,7 +21,7 @@ export class CreateComponent {
     constructor(
         private workerService: WorkerService,
         private projectService: ProjectService,
-        private utilService: UtilService,
+        private selectListService: SelectListService,
         private router: Router
     ) {}
     
@@ -34,7 +34,7 @@ export class CreateComponent {
             .getProjects()
             .subscribe(
                 projects => {
-                    this.utilService.buildSelectList(
+                    this.selectListService.buildSelectList(
                         jQuery('select.projects'), projects
                     );
                 },

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../Services/ClientService';
 import { ProjectService } from '../../Services/ProjectService';
-import { UtilService } from '../../Services/UtilService';
+import { SelectListService } from '../../Services/SelectListService';
 import { Client } from '../../Models/ClientModel';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
@@ -22,7 +22,7 @@ export class CreateComponent implements OnInit {
     constructor(
         private clientService: ClientService,
         private projectService: ProjectService,
-        private utilService: UtilService,
+        private selectListService: SelectListService,
         private router: Router
     ) {}
     
@@ -35,7 +35,7 @@ export class CreateComponent implements OnInit {
             .getProjects()
             .subscribe(
                 projects => {
-                    this.utilService.buildSelectList(
+                    this.selectListService.buildSelectList(
                         jQuery('select.projects'), projects
                     );
                     this.isSelectLoading = false;
