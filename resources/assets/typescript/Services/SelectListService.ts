@@ -4,22 +4,22 @@ import { Project }    from '../Models/ProjectModel';
 declare var jQuery: any;
 
 @Injectable()
-export class UtilService {
+export class SelectListService {
 
     public buildSelectList($el, data, selectedItems = null):void {
         
-        let selectOptions = '';
+        let options = '';
         let selected = '';
         
         if (!selectedItems) {
             
             if (data[0]['description']) {
                 for (let i = 0; i < data.length; ++i) {
-                    selectOptions += this.addProjectOption(data[i]);
+                    options += this.addProjectOption(data[i]);
                 }    
             } else {
                 for (let i = 0; i < data.length; ++i) {
-                    selectOptions += this.addOption(data[i]);
+                    options += this.addOption(data[i]);
                 }
             } 
             
@@ -29,14 +29,14 @@ export class UtilService {
                 
                 for (let i = 0; i < data.length; ++i) {
                     selected = jQuery.inArray(data[i]['id'], selectedItems) !== -1 ? 'selected' : '';
-                    selectOptions += this.addProjectOption(data[i], selected);    
+                    options += this.addProjectOption(data[i], selected);    
                 }
                 
             } else {
                 
                 for (let i = 0; i < data.length; ++i) {
                     selected = jQuery.inArray(data[i]['id'], selectedItems) !== -1 ? 'selected' : '';
-                    selectOptions += this.addOption(data[i], selected);
+                    options += this.addOption(data[i], selected);
                 }
                 
             }
@@ -47,20 +47,20 @@ export class UtilService {
                 
                 for (let i = 0; i < data.length; ++i) {
                     selected = data[i]['id'] == selectedItems ? 'selected' : '';
-                    selectOptions += this.addProjectOption(data[i], selected);
+                    options += this.addProjectOption(data[i], selected);
                 }
                 
             } else {
                
                 for (let i = 0; i < data.length; ++i) {
                     selected = data[i]['id'] == selectedItems ? 'selected' : '';
-                    selectOptions += this.addOption(data[i], selected);
+                    options += this.addOption(data[i], selected);
                 }
             }
             
         }
         
-        this.initializeBootstrapSelect($el, selectOptions);
+        this.initialize($el, options);
     }
     
     private addOption(data, selected = ''):string {
@@ -71,12 +71,8 @@ export class UtilService {
         return `<option ${selected} value='${data['id']}'>${data['name']}</option>`;
     }
     
-    private initializeBootstrapSelect($el, selectOptions):void {
-        $el.html(selectOptions);
-        $el.selectpicker({
-            style: 'btn-default',
-            size: 8
-        });
+    private initialize($el, options):void {
+        $el.html(options);
     }
     
 }
