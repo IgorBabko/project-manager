@@ -1,4 +1,4 @@
-<div class="col-lg-12">
+<div class="panel-body">
     <form (submit)="addWorker($event)">
         <div class="form-group">
             <label for="name">First name</label>

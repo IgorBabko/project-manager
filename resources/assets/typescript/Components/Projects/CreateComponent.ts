@@ -60,7 +60,7 @@ export class CreateComponent implements OnInit {
             .subscribe(
                 clients => {
                     this.utilService.buildSelectList(
-                        jQuery('select.clients'), clients
+                        jQuery('select.client'), clients
                     );
                 },
                 error => this.errorMessage = <any>error

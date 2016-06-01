@@ -16,6 +16,7 @@ export class CreateComponent implements OnInit {
     
     private client: Client = new Client();
     private isLoading = false;
+    private isSelectLoading = true;
     private errorMessage;
     
     constructor(
@@ -37,6 +38,7 @@ export class CreateComponent implements OnInit {
                     this.utilService.buildSelectList(
                         jQuery('select.projects'), projects
                     );
+                    this.isSelectLoading = false;
                 },
                 error => this.errorMessage = <any>error
             );

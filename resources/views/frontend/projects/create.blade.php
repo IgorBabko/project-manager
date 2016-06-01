@@ -1,4 +1,4 @@
-<div class="col-lg-12">
+<div class="panel-body">
     <form (submit)="addProject($event)">
         <div class="form-group">
             <label for="name">Name</label>
@@ -12,11 +12,14 @@
             <label for="description">Description</label>
             <textarea class="form-control" id="description" rows="10" placeholder="Description" [(ngModel)]="project.description"></textarea>
         </div>
-        <div class="forn-group">
+        <div class="form-group">
             <label for="client">Client</label><br>
             <select id="client" class="client" name="client_id" [(ngModel)]="project['client_id']"></select><br>
         </div>
-        <select class="workers" name="workers[]" multiple></select>
+        <div class="form-group">
+            <label for="workers">Workers</label><br>
+            <select id="workers" class="workers" name="workers[]" multiple></select><br>
+        </div>
         <br>
         <a [routerLink]="['/projects']" class="btn btn-default">Cancel</a>
         <button type="submit" class="btn btn-success">Create</button>

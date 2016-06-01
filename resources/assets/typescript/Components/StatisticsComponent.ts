@@ -1,6 +1,7 @@
-import { ROUTER_DIRECTIVES } from '@angular/router'
-import { Component, OnInit } from '@angular/core'
-import { StatisticsService } from '../Services/StatisticsService'
+import { ROUTER_DIRECTIVES } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { StatisticsService } from '../Services/StatisticsService';
+import { Statistics }        from '../Models/StatisticsModel';
 
 @Component({
     selector: 'statistics',
@@ -11,7 +12,7 @@ import { StatisticsService } from '../Services/StatisticsService'
 })
 export class StatisticsComponent implements OnInit {
     
-    private statistics = {};
+    private statistics: Statistics = new Statistics();
     private errorMessage;
 
     constructor(private statisticsService: StatisticsService) {

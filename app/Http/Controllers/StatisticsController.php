@@ -8,15 +8,17 @@ use ProjectManager\Http\Requests;
 use ProjectManager\Project;
 use ProjectManager\Worker;
 use ProjectManager\Client;
+use ProjectManager\Organisation;
 
 class StatisticsController extends Controller
 {
     public function statistics()
     {    
         return [
-            'projectsCount' => Project::all()->count(),
-            'workersCount'  => Worker::all()->count(),
-            'clientsCount'  => Client::all()->count(),
+            'projectCount' => Project::all()->count(),
+            'workerCount'  => Worker::all()->count(),
+            'clientCount'  => Client::all()->count(),
+            'organisationCount'  => Organisation::all()->count(),
         ];
     }
 }

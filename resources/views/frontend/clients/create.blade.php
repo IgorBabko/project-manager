@@ -1,4 +1,4 @@
-<div class="col-lg-12">
+<div class="panel-body">
     <form (submit)="addClient($event)">
         <div class="form-group">
             <label for="first_name">First name</label>
@@ -11,6 +11,7 @@
         <div class="form-group">
             <label for="projects">Projects</label><br>
             <select class="projects" name="projects[]" multiple></select><br>
+            <i *ngIf="isSelectLoading" class="fa fa-spinner fa-spin fa-fw" style="margin-left: 10px"></i>
         </div>
         <a [routerLink]="['/clients']" class="btn btn-default">Cancel</a>
         <button type="submit" class="btn btn-success">Create</button>

@@ -1,4 +1,4 @@
-<div class="col-lg-12">
+<div class="panel-body">
     <form (submit)="updateWorker($event)">
         {{ method_field("PATCH") }}
         <div class="form-group">

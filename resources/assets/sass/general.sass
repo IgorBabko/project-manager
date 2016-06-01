@@ -1,43 +1,39 @@
+.left-side
+    min-height: calc(100vh - 50px)
+
 body
-    margin-top: 100px
-    background-color: #222
-    padding: 0
+    background-color: #39435C
 
-@media(min-width:768px)
-    body
-        margin-top: 50px
+.content
+    min-height: calc(100vh - 85px)
 
+.sidebar-toggle
+    cursor: pointer
 
-#wrapper
-    padding-left: 0
-
-#page-wrapper
-    width: 100%
-    padding: 0
-    background-color: #fff
-
-.huge
-    font-size: 50px
-    line-height: normal
-
-@media(min-width:768px)
-    #wrapper
-        padding-left: 225px
-
-
-    #page-wrapper
-        padding: 10px
-
-.loader-icon
+.sm-st
     display: block
-    margin: 0 auto
 
+.amount
+    background: #425164
+    border-radius: 4px
+    padding: 0 4px
 
-.highlight-red
-    color: red
+.panel-body
+    position: relative
+    min-height: calc(100vh - 186px)
+    
+    // @media screen and (max-width: 560px)
+        // min-height: calc(100vh - 266px)
+
+.btn-new
+    position: absolute
+    top: 24px
+    left: 15px
 
 tr
     cursor: pointer
 
-.bootstrap-select
-    margin-bottom: 20px
+.loader-icon
+    position: absolute
+    top: 27px
+    left: 80px

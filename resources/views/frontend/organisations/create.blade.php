@@ -1,4 +1,4 @@
-<div class="col-lg-12">
+<div class="panel-body">
     <form (submit)="addOrganisation($event)">
         <div class="form-group">
             <label for="first_name">Name</label>

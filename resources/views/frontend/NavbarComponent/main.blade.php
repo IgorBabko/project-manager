@@ -1,152 +1,181 @@
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-        <a class="navbar-brand" [routerLink]="['/']">Project Manager</a>
-    </div>
-    <!-- Top Menu Items -->
-    <ul class="nav navbar-right top-nav">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-            <ul class="dropdown-menu message-dropdown">
-                <li class="message-preview">
-                    <a href="#">
-                        <div class="media">
-                            <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                            <div class="media-body">
-                                <h5 class="media-heading"><strong>John Doe</strong>
-                                        </h5>
-                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="message-preview">
-                    <a href="#">
-                        <div class="media">
-                            <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                            <div class="media-body">
-                                <h5 class="media-heading"><strong>John Doe</strong>
-                                        </h5>
-                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="message-preview">
-                    <a href="#">
-                        <div class="media">
-                            <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                            <div class="media-body">
-                                <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="message-footer">
-                    <a href="#">Read All New Messages</a>
-                </li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-            <ul class="dropdown-menu alert-dropdown">
-                <li>
-                    <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                </li>
-                <li>
-                    <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">View All</a>
-                </li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav side-nav">
-            <li [class.active]="location.path() == ''">
-                <a [routerLink]="['/statistics']"><i class="fa fa-fw fa-dashboard"></i> Statistics</a>
-            </li>
-            <li [class.active]="location.path() == 'projects'">
-                <a [routerLink]="['/projects']"><i class="fa fa-fw fa-bar-chart-o"></i> Projects</a>
-            </li>
-            <li [class.active]="location.path() == 'workers'">
-                <a [routerLink]="['/workers']"><i class="fa fa-fw fa-table"></i> Workers</a>
-            </li>
-            <li [class.active]="location.path() == 'clients'">
-                <a [routerLink]="['/clients']"><i class="fa fa-fw fa-edit"></i> Clients</a>
-            </li>
-            <li [class.active]="location.path() == 'organisations'">
-                <a [routerLink]="['/organisations']"><i class="fa fa-fw fa-edit"></i> Organisations</a>
-            </li>
-            <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                <ul id="demo" class="collapse">
+<nav class="navbar navbar-static-top" role="navigation">
+    <a (click)="toggleSidebar()" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </a>
+    <!--<div class="navbar-right">
+        <ul class="nav navbar-nav">
+            <li class="dropdown messages-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-envelope"></i>
+                    <span class="label label-success">4</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="header">You have 4 messages</li>
                     <li>
-                        <a href="#">Dropdown Item</a>
+                        <ul class="menu">
+                            <li>
+                                <a href="#">
+                                    <div class="pull-left">
+                                        <img src="img/26115.jpg" class="img-circle" alt="User Image" />
+                                    </div>
+                                    <h4>Support Team</h4>
+                                    <p>Why not buy a new awesome theme?</p>
+                                    <small class="pull-right"><i class="fa fa-clock-o"></i> 5 mins</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="pull-left">
+                                        <img src="img/26115.jpg" class="img-circle" alt="user image" />
+                                    </div>
+                                    <h4>Director Design Team</h4>
+                                    <p>Why not buy a new awesome theme?</p>
+                                    <small class="pull-right"><i class="fa fa-clock-o"></i> 2 hours</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="pull-left">
+                                        <img src="img/avatar.png" class="img-circle" alt="user image" />
+                                    </div>
+                                    <h4>Developers</h4>
+                                    <p>Why not buy a new awesome theme?</p>
+                                    <small class="pull-right"><i class="fa fa-clock-o"></i> Today</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="pull-left">
+                                        <img src="img/26115.jpg" class="img-circle" alt="user image" />
+                                    </div>
+                                    <h4>Sales Department</h4>
+                                    <p>Why not buy a new awesome theme?</p>
+                                    <small class="pull-right"><i class="fa fa-clock-o"></i> Yesterday</small>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="pull-left">
+                                        <img src="img/avatar.png" class="img-circle" alt="user image" />
+                                    </div>
+                                    <h4>Reviewers</h4>
+                                    <p>Why not buy a new awesome theme?</p>
+                                    <small class="pull-right"><i class="fa fa-clock-o"></i> 2 days</small>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+                    <li class="footer"><a href="#">See All Messages</a></li>
+                </ul>
+            </li>
+            <li class="dropdown tasks-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-tasks"></i>
+                    <span class="label label-danger">9</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="header">You have 9 tasks</li>
                     <li>
-                        <a href="#">Dropdown Item</a>
+                        <ul class="menu">
+                            <li>
+                                <a href="#">
+                                    <h3>
+                                            Design some buttons
+                                            <small class="pull-right">20%</small>
+                                        </h3>
+                                    <div class="progress progress-striped xs">
+                                        <div class="progress-bar progress-bar-success" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h3>
+                                            Create a nice theme
+                                            <small class="pull-right">40%</small>
+                                        </h3>
+                                    <div class="progress progress-striped xs">
+                                        <div class="progress-bar progress-bar-danger" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <span class="sr-only">40% Complete</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h3>
+                                            Some task I need to do
+                                            <small class="pull-right">60%</small>
+                                        </h3>
+                                    <div class="progress progress-striped xs">
+                                        <div class="progress-bar progress-bar-info" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <span class="sr-only">60% Complete</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h3>
+                                            Make beautiful transitions
+                                            <small class="pull-right">80%</small>
+                                        </h3>
+                                    <div class="progress progress-striped xs">
+                                        <div class="progress-bar progress-bar-warning" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <span class="sr-only">80% Complete</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="footer">
+                        <a href="#">View all tasks</a>
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-            </li>
-            <li>
-                <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+            <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-user"></i>
+                    <span>Jane Doe <i class="caret"></i></span>
+                </a>
+                <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                    <li class="dropdown-header text-center">Account</li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-clock-o fa-fw pull-right"></i>
+                            <span class="badge badge-success pull-right">10</span> Updates</a>
+                        <a href="#">
+                            <i class="fa fa-envelope-o fa-fw pull-right"></i>
+                            <span class="badge badge-danger pull-right">5</span> Messages</a>
+                        <a href="#"><i class="fa fa-magnet fa-fw pull-right"></i>
+                                <span class="badge badge-info pull-right">3</span> Subscriptions</a>
+                        <a href="#"><i class="fa fa-question fa-fw pull-right"></i> <span class=
+                                "badge pull-right">11</span> FAQ</a>
+                    </li>
+
+                    <li class="divider"></li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-user fa-fw pull-right"></i> Profile
+                        </a>
+                        <a data-toggle="modal" href="#modal-user-settings">
+                            <i class="fa fa-cog fa-fw pull-right"></i> Settings
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                    </li>
+                </ul>
             </li>
         </ul>
-    </div>
-    <!-- /.navbar-collapse -->
+    </div>-->
 </nav>

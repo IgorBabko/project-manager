@@ -1,4 +1,5 @@
-<div class="col-lg-12">
-    <i *ngIf="!isLoaded" class="fa fa-spinner fa-spin fa-5x fa-fw loader-icon"></i>
+<div class="panel-body">
+    <a [routerLink]="['/projects/create']" class="btn btn-info btn-new">New</a>
+    <i *ngIf="!isLoaded" class="fa fa-spinner fa-spin fa-2x fa-fw loader-icon"></i>
     <table id="table"></table>
 </div>

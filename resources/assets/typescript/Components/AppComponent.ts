@@ -6,7 +6,11 @@ import { WorkersComponent } from './Workers/WorkersComponent';
 import { ClientsComponent } from './Clients/ClientsComponent';
 import { OrganisationsComponent } from './Organisations/OrganisationsComponent';
 import { StatisticsComponent } from './StatisticsComponent';
+
+import { HeaderComponent } from './HeaderComponent';
 import { NavbarComponent } from './NavbarComponent';
+import { SidebarComponent } from './SidebarComponent';
+import { ContentComponent } from './ContentComponent';
 
 @Routes([
     {
@@ -35,7 +39,13 @@ import { NavbarComponent } from './NavbarComponent';
     }
 ])
 @Component({
-    'directives': [ROUTER_DIRECTIVES, NavbarComponent],
+    'directives': [ 
+            ROUTER_DIRECTIVES,
+            HeaderComponent,
+            NavbarComponent,
+            SidebarComponent,
+            ContentComponent
+        ],
     'selector': 'app',
     'templateUrl': '/templates/AppComponent.main'
 })

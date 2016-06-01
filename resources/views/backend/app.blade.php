@@ -12,7 +12,7 @@
         @include('backend.partials.styles')
     
     </head>
-    <body>
+    <body class="skin-black">
     
         <div id="wrapper">
             <app>
