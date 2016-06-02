@@ -11,7 +11,7 @@
         </div>
         <a [routerLink]="['/organisations']" class="btn btn-default">Cancel</a>
         <a class="btn btn-danger" (click)="deleteOrganisation()">Delete</a>
-        <button type="submit" class="btn btn-success">Create</button>
+        <button type="submit" class="btn btn-success">Update</button>
         <i *ngIf="isLoading" class="fa fa-spinner fa-spin fa-fw" style="margin-left: 10px"></i>
     </form>
 </div>
