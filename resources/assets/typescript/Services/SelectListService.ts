@@ -12,63 +12,30 @@ export class SelectListService {
         let selected = '';
         
         if (!selectedItems) {
-            
-            if (data[0]['description']) {
-                for (let i = 0; i < data.length; ++i) {
-                    options += this.addProjectOption(data[i]);
-                }    
-            } else {
-                for (let i = 0; i < data.length; ++i) {
-                    options += this.addOption(data[i]);
-                }
-            } 
-            
+            for (let i = 0; i < data.length; ++i) {
+                options += this.addOption(data[i]);
+            }
         } else if (typeof selectedItems == 'object') {
-            
-            if (data[0]['description']) {
-                
-                for (let i = 0; i < data.length; ++i) {
-                    selected = jQuery.inArray(data[i]['id'], selectedItems) !== -1 ? 'selected' : '';
-                    options += this.addProjectOption(data[i], selected);    
-                }
-                
-            } else {
-                
-                for (let i = 0; i < data.length; ++i) {
-                    selected = jQuery.inArray(data[i]['id'], selectedItems) !== -1 ? 'selected' : '';
-                    options += this.addOption(data[i], selected);
-                }
-                
+            for (let i = 0; i < data.length; ++i) {
+                selected = jQuery.inArray(data[i]['id'], selectedItems) !== -1 ? 'selected' : '';
+                options += this.addOption(data[i], selected);
             }
-            
-        } else {
-            
-            if (data[0]['description']) {
-                
-                for (let i = 0; i < data.length; ++i) {
-                    selected = data[i]['id'] == selectedItems ? 'selected' : '';
-                    options += this.addProjectOption(data[i], selected);
-                }
-                
-            } else {
-               
-                for (let i = 0; i < data.length; ++i) {
-                    selected = data[i]['id'] == selectedItems ? 'selected' : '';
-                    options += this.addOption(data[i], selected);
-                }
+        } else {  
+            for (let i = 0; i < data.length; ++i) {
+                selected = data[i]['id'] == selectedItems ? 'selected' : '';
+                options += this.addOption(data[i], selected);
             }
-            
         }
         
         this.initialize($el, options, isMultiple);
     }
     
     private addOption(data, selected = ''):string {
-        return `<option ${selected} value='${data['id']}'>${data['first_name']} ${data['last_name']}</option>`;
-    }
-    
-    private addProjectOption(data, selected = ''):string {
-        return `<option ${selected} value='${data['id']}'>${data['name']}</option>`;
+        if (data['name']) {
+            return `<option ${selected} value='${data['id']}'>${data['name']}</option>`;            
+        } else {
+            return `<option ${selected} value='${data['id']}'>${data['first_name']} ${data['last_name']}</option>`;            
+        }
     }
     
     private initialize($el, options, isMultiple = false):void {

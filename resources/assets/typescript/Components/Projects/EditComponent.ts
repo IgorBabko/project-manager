@@ -59,7 +59,7 @@ export class EditComponent {
             clients => {
                 this.clients = clients;
                 this.selectListService.buildSelectList(
-                    jQuery('select.client'),
+                    jQuery('select.clients'),
                     clients,
                     this.project['client_id']
                 );
@@ -91,7 +91,8 @@ export class EditComponent {
                 this.selectListService.buildSelectList(
                     jQuery('select.workers'),
                     this.workers,
-                    workerIds
+                    workerIds,
+                    true
                 );
             },
             error => this.errorMessage = error

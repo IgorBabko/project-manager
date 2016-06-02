@@ -10,6 +10,10 @@
             <input type="text" class="form-control" id="last_name" placeholder="Last name" [(ngModel)]="client['last_name']">
         </div>
         <div class="form-group">
+            <label for="organisations">Organisation</label><br>
+            <select class="form-control organisations" name="organisation_id"></select><br>
+        </div>
+        <div class="form-group">
             <label for="projects">Projects</label><br>
             <select class="projects" name="projects[]" multiple></select><br>
         </div>

@@ -1,8 +1,10 @@
 import { Client } from '../../Models/ClientModel';
 import { Project } from '../../Models/ProjectModel';
+import { Organisation } from '../../Models/OrganisationModel';
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../Services/ClientService';
 import { ProjectService } from '../../Services/ProjectService';
+import { OrganisationService } from '../../Services/OrganisationService';
 import { SelectListService } from '../../Services/SelectListService';
 import { ROUTER_DIRECTIVES, Router, RouteSegment } from '@angular/router';
 
@@ -10,7 +12,7 @@ declare var jQuery: any;
 
 @Component({
     templateUrl: '/templates/clients.edit',
-    providers: [ ClientService, ProjectService ],
+    providers: [ ClientService, ProjectService, OrganisationService ],
     directives: [ ROUTER_DIRECTIVES ]
 })
 export class EditComponent {
@@ -19,10 +21,12 @@ export class EditComponent {
     private isLoading: boolean = false;
     private errorMessage;
     private projects: Project[];
+    private organisations: Organisation;
     
     constructor(
         private clientService: ClientService,
         private projectService: ProjectService,
+        private organisationService: OrganisationService,
         private selectListService: SelectListService,
         private router: Router,
         private routeSegment: RouteSegment
@@ -46,6 +50,22 @@ export class EditComponent {
             );
     }
     
+    public getOrganisations() {
+        this.organisationService
+            .getOrganisations()
+            .subscribe(
+            organisations => {
+                this.organisations = organisations;
+                this.selectListService.buildSelectList(
+                    jQuery('select.organisations'),
+                    organisations,
+                    this.client['organisation_id']
+                );
+            },
+            error => this.errorMessage = <any>error
+            );
+    }
+    
     public getProjectIds(clientId: number | string) {
         this.clientService
             .getProjectIds(clientId)
@@ -54,7 +74,8 @@ export class EditComponent {
                 this.selectListService.buildSelectList(
                     jQuery('select.projects'),
                     this.projects,
-                    projectIds
+                    projectIds,
+                    true
                 );
             },
             error => this.errorMessage = error
@@ -68,6 +89,7 @@ export class EditComponent {
                 client => {
                     this.client = client;
                     this.getProjects();
+                    this.getOrganisations();
                 },
                 error => this.errorMessage = error
             );

@@ -10,10 +10,8 @@ class Organisation extends Model
 {
     protected $guarded = [];
 
-    
     public function clients()
     {
-        
         return $this->hasMany(Client::class);
     }
     

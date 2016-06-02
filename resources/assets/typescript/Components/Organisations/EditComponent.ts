@@ -54,7 +54,8 @@ export class EditComponent {
                 this.selectListService.buildSelectList(
                     jQuery('select.clients'),
                     this.clients,
-                    clientIds
+                    clientIds,
+                    true
                 );
             },
             error => this.errorMessage = error

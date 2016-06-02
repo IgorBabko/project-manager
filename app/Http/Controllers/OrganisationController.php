@@ -83,7 +83,7 @@ class OrganisationController extends Controller
      * @param  \ProjectManager\Organisation $organisation
      * @return \ProjectManager\Organisation
      */
-    public function edit(organisation $organisation)
+    public function edit(Organisation $organisation)
     {
         return $organisation;
     }

@@ -35,7 +35,10 @@ export class CreateComponent {
             .subscribe(
                 projects => {
                     this.selectListService.buildSelectList(
-                        jQuery('select.projects'), projects
+                        jQuery('select.projects'),
+                        projects,
+                        null,
+                        true
                     );
                 },
                 error => this.errorMessage = <any>error

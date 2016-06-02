@@ -13,8 +13,8 @@
             <textarea class="form-control" id="description" rows="10" placeholder="Description" [(ngModel)]="project.description"></textarea>
         </div>
         <div class="form-group">
-            <label for="client">Client</label><br>
-            <select id="client" class="form-control client" name="client_id" [(ngModel)]="project['client_id']"></select><br>
+            <label for="clients">Client</label><br>
+            <select id="clients" class="form-control clients" name="client_id" [(ngModel)]="project['client_id']"></select><br>
         </div>
         <div class="form-group">
             <label for="workers">Workers</label><br>
