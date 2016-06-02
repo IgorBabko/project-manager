@@ -47,7 +47,7 @@ export class CreateComponent implements OnInit {
             .subscribe(
                 workers => {
                     this.selectListService.buildSelectList(
-                        jQuery('select.workers'), workers
+                        jQuery('select.workers'), workers, null, true
                     );
                 },
                 error => this.errorMessage = <any>error

@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-table": "^1.10.1"
+    "bootstrap-table": "^1.10.1",
+    "multiple-select": "^1.2.1"
   }
 }

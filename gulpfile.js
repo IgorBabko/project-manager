@@ -70,14 +70,14 @@ elixir(function(mix) {
     mix.copy('node_modules/sweetalert/dist/sweetalert.min.js', 'public/js');
 
     /**
-     * Bootstrap select css
+     * Multiple select css
      **/
-    mix.copy('node_modules/bootstrap-select/dist/css/bootstrap-select.min.css', 'public/css');
-    
+    mix.copy('bower_components/multiple-select/multiple-select.css', 'public/css');
+
     /**
-     * Bootstrap select css
+     * Multiple select js
      **/
-    mix.copy('node_modules/bootstrap-select/dist/js/bootstrap-select.min.js', 'public/js');
+    mix.copy('bower_components/multiple-select/multiple-select.js', 'public/js');
 
 
     /**

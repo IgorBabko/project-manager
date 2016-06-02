@@ -6,7 +6,7 @@
 
 <script src="/js/bootstrap-table.min.js"></script>
 
-<script src="/js/bootstrap-select.min.js"></script>
+<script src="/js/multiple-select.js"></script>
 
 <script src="/js/sweetalert.min.js"></script>
 

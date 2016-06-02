@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="/css/bootstrap-table.min.css">
 <link rel="stylesheet" href="/css/sweetalert.css">
-<link rel="stylesheet" href="/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="/css/multiple-select.css">
 <link href="/css/app.css" rel="stylesheet" type="text/css" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

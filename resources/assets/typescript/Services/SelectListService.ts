@@ -6,7 +6,7 @@ declare var jQuery: any;
 @Injectable()
 export class SelectListService {
 
-    public buildSelectList($el, data, selectedItems = null):void {
+    public buildSelectList($el, data, selectedItems = null, isMultiple = false):void {
         
         let options = '';
         let selected = '';
@@ -60,7 +60,7 @@ export class SelectListService {
             
         }
         
-        this.initialize($el, options);
+        this.initialize($el, options, isMultiple);
     }
     
     private addOption(data, selected = ''):string {
@@ -71,8 +71,12 @@ export class SelectListService {
         return `<option ${selected} value='${data['id']}'>${data['name']}</option>`;
     }
     
-    private initialize($el, options):void {
+    private initialize($el, options, isMultiple = false):void {
         $el.html(options);
+        
+        if (isMultiple) {
+            $el.multipleSelect();
+        }
     }
     
 }

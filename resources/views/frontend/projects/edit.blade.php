@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
             <label for="client">Client</label><br>
-            <select id="client" class="client" name="client_id" [(ngModel)]="project['client_id']"></select><br>
+            <select id="client" class="form-control client" name="client_id" [(ngModel)]="project['client_id']"></select><br>
         </div>
         <div class="form-group">
             <label for="workers">Workers</label><br>
